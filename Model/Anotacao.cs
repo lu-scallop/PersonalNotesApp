@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonalNotesApp.Model
 {
-    class Anotacao : Base
+    public class Anotacao : Base
     {
         public string Texto { get; set; }
         public Anotacao(string nome)

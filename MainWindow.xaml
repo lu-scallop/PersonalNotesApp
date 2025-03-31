@@ -23,20 +23,21 @@
                 <MenuItem Header="Adicionar Pasta" Click="AdicionaNovaPasta_Click" />
                 <MenuItem Header="Adicionar Anotação" Click="AdicionaNovaAnotacao_Click" />
                 <MenuItem Header="Salvar" />
-                <MenuItem Header="Sair" />
+                <MenuItem Header="Sair" Click="Sair_Click"/>
             </MenuItem>
         </Menu>
 
 
 
-        <TreeView x:Name="tv_Main" Grid.Column="0" Grid.Row="1" Margin="5" ItemsSource="{Binding Pastas}" >
+        <TreeView x:Name="tv_Main" Grid.Column="0" Grid.Row="1" Margin="5" ItemsSource="{Binding Pastas}" 
+                  SelectedItemChanged="tv_Main_SelectedItemChanged" >
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type local:Pasta}" ItemsSource="{Binding SubPastas}">
                     <TextBlock Text="{Binding Nome}"/>
                 </HierarchicalDataTemplate>
 
                 <DataTemplate DataType="{x:Type local:Anotacao}">
-                    <TextBlock Text="{Binding Texto}" />
+                    <TextBlock Text="{Binding Nome}" />
                 </DataTemplate>
             </TreeView.Resources>
         </TreeView>
@@ -47,8 +48,14 @@
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBox Grid.Row="0" Margin="5"/>
-            <RichTextBox Grid.Row="1" Margin="5" />
+            <TextBox Grid.Row="0" Margin="5" Text="{Binding ItemSelecionado.Nome, UpdateSourceTrigger=PropertyChanged}"/>
+            <RichTextBox Grid.Row="1" Margin="5">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="{Binding AnotacaoSelecionada.Texto}" />
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
         </Grid>
     </Grid>
 </Window>

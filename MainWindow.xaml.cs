@@ -36,5 +36,16 @@ namespace PersonalNotesApp
 		{
 			ViewModel.AdicionaNovaAnotacao();
 		}
+		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+		{
+			if (e.NewValue is Anotacao selecionado)
+			{
+				ViewModel.ItemSelecionado = selecionado;
+			}
+		}
+		private void Sair_Click(object sender, RoutedEventArgs e)
+		{
+			
+		}
 	}
 }

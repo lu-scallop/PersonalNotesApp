@@ -14,6 +14,16 @@ namespace PersonalNotesApp.ViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<Base> Pastas { get; set; }
+        public Anotacao? AnotacaoSelecionada => ItemSelecionado as Anotacao;
+        public Base _selecionado;
+        public Base ItemSelecionado 
+        {   get => _selecionado;
+            set 
+            {
+                _selecionado = value;
+                OnPropertyChanged(nameof(ItemSelecionado));
+            } 
+        }
 
         public MainViewModel()
         {
@@ -23,6 +33,8 @@ namespace PersonalNotesApp.ViewModel
 		}
         protected void OnPropertyChanged(string propertyName)
         {
+            if (string.IsNullOrWhiteSpace(propertyName))
+
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
