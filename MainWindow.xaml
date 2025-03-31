@@ -1,0 +1,54 @@
+﻿<Window x:Class="PersonalNotesApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonalNotesApp.Model" xmlns:viewmodel="clr-namespace:PersonalNotesApp.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"  />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.Row="0" Grid.ColumnSpan="3" Background="LightGray" Margin="0,0,0,30"  >
+            <MenuItem Header="Arquivo">
+                <MenuItem Header="Adicionar Pasta" Click="AdicionaNovaPasta_Click" />
+                <MenuItem Header="Adicionar Anotação" Click="AdicionaNovaAnotacao_Click" />
+                <MenuItem Header="Salvar" />
+                <MenuItem Header="Sair" />
+            </MenuItem>
+        </Menu>
+
+
+
+        <TreeView x:Name="tv_Main" Grid.Column="0" Grid.Row="1" Margin="5" ItemsSource="{Binding Pastas}" >
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:Pasta}" ItemsSource="{Binding SubPastas}">
+                    <TextBlock Text="{Binding Nome}"/>
+                </HierarchicalDataTemplate>
+
+                <DataTemplate DataType="{x:Type local:Anotacao}">
+                    <TextBlock Text="{Binding Texto}" />
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+        <GridSplitter Grid.Column="1" Grid.Row="1" Width="5" Background="Gray" Cursor="SizeWE" />
+
+        <Grid Grid.Column="2" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" Margin="5"/>
+            <RichTextBox Grid.Row="1" Margin="5" />
+        </Grid>
+    </Grid>
+</Window>
