@@ -33,15 +33,12 @@ namespace PersonalNotesApp.ViewModel
 		}
         protected void OnPropertyChanged(string propertyName)
         {
-            if (string.IsNullOrWhiteSpace(propertyName))
-
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public void AdicionaNovaPasta()
         {
             var pasta = new Pasta("Nova Pasta");
-
             Pastas.Add(pasta);
         }
 
