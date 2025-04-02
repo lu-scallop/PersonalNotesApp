@@ -43,9 +43,21 @@ namespace PersonalNotesApp
 				ViewModel.ItemSelecionado = selecionado;
 			}
 		}
+		private void tv_Main_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+		{
+            if (tv_Main.SelectedItem is Base item)
+            {
+				item.EditaNome = true;
+            }
+        }
+		private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+		{
+			if (((FrameworkElement)sender).DataContext is  Base item)
+				item.EditaNome = false;
+		}
 		private void Sair_Click(object sender, RoutedEventArgs e)
 		{
-			
+			Application.Current.Shutdown();
 		}
 	}
 }

@@ -30,10 +30,33 @@
 
 
         <TreeView x:Name="tv_Main" Grid.Column="0" Grid.Row="1" Margin="5" ItemsSource="{Binding Pastas}" 
-                  SelectedItemChanged="tv_Main_SelectedItemChanged" >
+                  SelectedItemChanged="tv_Main_SelectedItemChanged" MouseDoubleClick="tv_Main_MouseDoubleClick" >
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type local:Pasta}" ItemsSource="{Binding SubPastas}">
-                    <TextBlock Text="{Binding Nome}"/>
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding EditaNome}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding EditaNome}" Value="True">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Resources>
+
+                        <TextBox Text="{Binding Nome, UpdateSourceTrigger=PropertyChanged}" LostFocus="TextBox_LostFocus" />
+                        <TextBlock Text="{Binding Nome}" />
+                    </Grid>
                 </HierarchicalDataTemplate>
 
                 <DataTemplate DataType="{x:Type local:Anotacao}">
