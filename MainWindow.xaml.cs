@@ -38,11 +38,15 @@ namespace PersonalNotesApp
 		}
 		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
-			if (e.NewValue is Anotacao selecionado)
+			if (e.NewValue is Anotacao anotacaoselecionado)
 			{
-				ViewModel.ItemSelecionado = selecionado;
+				ViewModel.ItemSelecionado = anotacaoselecionado;
 			}
-		}
+            if (e.NewValue is Pasta pastaSelecionado)
+            {
+				ViewModel.ItemSelecionado = pastaSelecionado;
+            }
+        }
 		private void tv_Main_MouseDoubleClick(object sender, MouseButtonEventArgs e)
 		{
             if (tv_Main.SelectedItem is Base item)

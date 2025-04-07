@@ -53,9 +53,14 @@
                                 </Style.Triggers>
                             </Style>
                         </Grid.Resources>
-
                         <TextBox Text="{Binding Nome, UpdateSourceTrigger=PropertyChanged}" LostFocus="TextBox_LostFocus" />
-                        <TextBlock Text="{Binding Nome}" />
+                        <TextBlock Text="{Binding Nome}">
+                            <TextBlock.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Adicionar SubPasta"/>
+                                </ContextMenu>
+                            </TextBlock.ContextMenu>
+                        </TextBlock>
                     </Grid>
                 </HierarchicalDataTemplate>
 
