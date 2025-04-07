@@ -57,7 +57,7 @@
                         <TextBlock Text="{Binding Nome}">
                             <TextBlock.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Adicionar SubPasta"/>
+                                    <MenuItem Header="Adicionar SubPasta" Click="AdicionaSubPasta_Click"/>
                                 </ContextMenu>
                             </TextBlock.ContextMenu>
                         </TextBlock>

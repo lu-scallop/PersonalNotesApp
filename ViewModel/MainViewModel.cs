@@ -42,7 +42,12 @@ namespace PersonalNotesApp.ViewModel
             Pastas.Add(pasta);
         }
 
-        public void AdicionaNovaAnotacao()
+		public void AdicionaSubPasta(Pasta pastaSelecionada)
+		{
+            pastaSelecionada.SubPastas.Add(new Pasta("Nova Pasta"));
+		}
+
+		public void AdicionaNovaAnotacao()
         {
             var anotacao = new Anotacao("Nova Anotação");
             Pastas.Add(anotacao);

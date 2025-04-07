@@ -32,6 +32,10 @@ namespace PersonalNotesApp
 		{
 			ViewModel.AdicionaNovaPasta();
 		}
+		private void AdicionaSubPasta_Click(object sender, RoutedEventArgs e)
+		{
+			ViewModel.AdicionaSubPasta(ViewModel.ItemSelecionado as Pasta);
+		}
 		private void AdicionaNovaAnotacao_Click(object sender, RoutedEventArgs e)
 		{
 			ViewModel.AdicionaNovaAnotacao();
