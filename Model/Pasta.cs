@@ -12,12 +12,12 @@ namespace PersonalNotesApp.Model
     {
 
 		
-		public ObservableCollection<Pasta> SubPastas { get; set; }
+		public ObservableCollection<Base> SubPastas { get; set; }
 
 		public Pasta(string nome)
 		{
 			Nome = nome;
-			SubPastas = new ObservableCollection<Pasta>();
+			SubPastas = new ObservableCollection<Base>();
 		}
 
 	}

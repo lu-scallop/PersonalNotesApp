@@ -52,6 +52,10 @@ namespace PersonalNotesApp.ViewModel
             var anotacao = new Anotacao("Nova Anotação");
             Pastas.Add(anotacao);
         }
+        public void AdicionaNovaAnotacaoEmSubPasta(Pasta pastaSelecionada)
+        {
+            pastaSelecionada.SubPastas.Add(new Anotacao("Nova Anotação"));
+        }
 
 
     }
