@@ -44,6 +44,10 @@ namespace PersonalNotesApp
 		{
 			ViewModel.AdicionaNovaAnotacaoEmSubPasta(ViewModel.ItemSelecionado as Pasta);
 		}
+		private void Salvar_Click(object sender, RoutedEventArgs e)
+		{
+			ViewModel.Salvar();
+		}
 		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
 			if (e.NewValue is Anotacao anotacaoselecionado)

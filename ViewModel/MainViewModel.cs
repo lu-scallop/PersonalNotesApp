@@ -7,11 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.IO;
 
 namespace PersonalNotesApp.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        public string CaminhoRaiz 
+        {
+            get 
+            {
+                var caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Estrutura");
+                Directory.CreateDirectory(caminho);
+                return caminho;
+            }
+        }
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<Base> Pastas { get; set; }
         public Anotacao? AnotacaoSelecionada => ItemSelecionado as Anotacao;
@@ -55,6 +65,10 @@ namespace PersonalNotesApp.ViewModel
         public void AdicionaNovaAnotacaoEmSubPasta(Pasta pastaSelecionada)
         {
             pastaSelecionada.SubPastas.Add(new Anotacao("Nova Anotação"));
+        }
+        public void Salvar()
+        {
+
         }
 
 

@@ -22,7 +22,7 @@
             <MenuItem Header="Arquivo">
                 <MenuItem Header="Adicionar Pasta" Click="AdicionaNovaPasta_Click" />
                 <MenuItem Header="Adicionar Anotação" Click="AdicionaNovaAnotacao_Click" />
-                <MenuItem Header="Salvar" />
+                <MenuItem Header="Salvar" Click="Salvar_Click"/>
                 <MenuItem Header="Sair" Click="Sair_Click"/>
             </MenuItem>
         </Menu>
