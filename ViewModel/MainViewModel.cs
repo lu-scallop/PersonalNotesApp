@@ -66,9 +66,22 @@ namespace PersonalNotesApp.ViewModel
         {
             pastaSelecionada.SubPastas.Add(new Anotacao("Nova Anotação"));
         }
-        public void Salvar()
+        public void Salvar(string caminhoRaiz, ObservableCollection<Base> pastas)
         {
-
+            foreach (var item in pastas)
+            {
+                if (item is Pasta pasta)
+                {
+                    Directory.CreateDirectory(Path.Combine(caminhoRaiz, pasta.Nome));
+                    Salvar(Path.Combine(caminhoRaiz, pasta.Nome), pasta.SubPastas);
+                }
+                else if (item is Anotacao anotacao)
+                {
+                    var caminhoArquivo = Path.Combine(caminhoRaiz, anotacao.Nome + ".md");
+                    Console.WriteLine(caminhoArquivo);
+                    File.WriteAllText(caminhoArquivo, anotacao.Texto);
+                }
+            }
         }
 
 

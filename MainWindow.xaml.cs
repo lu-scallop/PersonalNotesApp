@@ -46,7 +46,7 @@ namespace PersonalNotesApp
 		}
 		private void Salvar_Click(object sender, RoutedEventArgs e)
 		{
-			ViewModel.Salvar();
+			ViewModel.Salvar(ViewModel.CaminhoRaiz, ViewModel.Pastas);
 		}
 		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
