@@ -83,6 +83,10 @@ namespace PersonalNotesApp.ViewModel
                 }
             }
         }
+        public void CarregarPastasEnotas()
+        {
+
+        }
 
 
     }
