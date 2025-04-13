@@ -83,9 +83,25 @@ namespace PersonalNotesApp.ViewModel
                 }
             }
         }
-        public void CarregarPastasEnotas()
+        public void CarregarPastasEnotas(string caminhoRaiz)
         {
-
+            MapearPastaEstruturaParaTreeView(caminhoRaiz);
+        }
+        
+        public void MapearPastaEstruturaParaTreeView(string caminhoRaiz)
+        {
+            try
+            {
+				foreach (string diretorio in Directory.GetDirectories(caminhoRaiz))
+				{
+                    AdicionaNovaPasta();
+                }
+			}
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+            }
+            
         }
 
 

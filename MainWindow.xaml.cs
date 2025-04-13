@@ -48,6 +48,10 @@ namespace PersonalNotesApp
 		{
 			ViewModel.Salvar(ViewModel.CaminhoRaiz, ViewModel.Pastas);
 		}
+		private void CarregarPastasEnotas_Click(object sender, RoutedEventArgs e)
+		{
+			ViewModel.CarregarPastasEnotas(ViewModel.CaminhoRaiz);
+		}
 		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
 			if (e.NewValue is Anotacao anotacaoselecionado)
