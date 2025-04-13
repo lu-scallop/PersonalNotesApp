@@ -38,7 +38,8 @@ namespace PersonalNotesApp.ViewModel
         public MainViewModel()
         {
             Pastas = new ObservableCollection<Base>();
-
+			Pastas.Clear();
+			MapearPastaEstruturaParaTreeView(CaminhoRaiz, Pastas);
 
 		}
         protected void OnPropertyChanged(string propertyName)
@@ -83,20 +84,27 @@ namespace PersonalNotesApp.ViewModel
                 }
             }
         }
-        public void CarregarPastasEnotas(string caminhoRaiz)
-        {
-            MapearPastaEstruturaParaTreeView(caminhoRaiz);
-        }
-        
-        public void MapearPastaEstruturaParaTreeView(string caminhoRaiz)
+        public void MapearPastaEstruturaParaTreeView(string caminhoRaiz, ObservableCollection<Base> colecao)
         {
             try
             {
 				foreach (string diretorio in Directory.GetDirectories(caminhoRaiz))
 				{
-                    AdicionaNovaPasta();
+                    var nomePasta = Path.GetFileName(diretorio);
+                    var pasta = new Pasta(nomePasta);
+
+                    colecao.Add(pasta);
+
+                    MapearPastaEstruturaParaTreeView(diretorio, pasta.SubPastas);
                 }
-			}
+                foreach (string arquivos in Directory.GetFiles(caminhoRaiz, "*.md"))
+                {
+                    var nomeArquivo = Path.GetFileNameWithoutExtension(arquivos);
+                    var texto = File.ReadAllText(arquivos);
+
+                    colecao.Add(new Anotacao(nomeArquivo) { Texto = texto });
+                }
+            }
             catch(Exception ex)
             {
                 Console.WriteLine($"Ocorreu um erro: {ex.Message}");

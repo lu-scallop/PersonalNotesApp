@@ -50,7 +50,8 @@ namespace PersonalNotesApp
 		}
 		private void CarregarPastasEnotas_Click(object sender, RoutedEventArgs e)
 		{
-			ViewModel.CarregarPastasEnotas(ViewModel.CaminhoRaiz);
+			ViewModel.Pastas.Clear();
+			ViewModel.MapearPastaEstruturaParaTreeView(ViewModel.CaminhoRaiz, ViewModel.Pastas);
 		}
 		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
