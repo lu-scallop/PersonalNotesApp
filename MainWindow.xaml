@@ -82,7 +82,7 @@
             <RichTextBox Grid.Row="1" Margin="5">
                 <FlowDocument>
                     <Paragraph>
-                        <Run Text="{Binding AnotacaoSelecionada.Texto}" />
+                        <Run Text="{Binding AnotacaoSelecionada.Texto, UpdateSourceTrigger=PropertyChanged}" />
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>

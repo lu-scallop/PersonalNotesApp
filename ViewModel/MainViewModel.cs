@@ -32,7 +32,8 @@ namespace PersonalNotesApp.ViewModel
             {
                 _selecionado = value;
                 OnPropertyChanged(nameof(ItemSelecionado));
-            } 
+				OnPropertyChanged(nameof(AnotacaoSelecionada));
+			} 
         }
 
         public MainViewModel()
