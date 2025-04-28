@@ -32,9 +32,6 @@
                 <MenuItem Header="Sublinhado" />
             </MenuItem>
         </Menu>
-
-
-
         <TreeView x:Name="tv_Main" Grid.Column="0" Grid.Row="1" Margin="5" ItemsSource="{Binding Pastas}" 
                   SelectedItemChanged="tv_Main_SelectedItemChanged" MouseDoubleClick="tv_Main_MouseDoubleClick" >
             <TreeView.Resources>
@@ -85,11 +82,13 @@
             </Grid.RowDefinitions>
             <TextBox Grid.Row="0" Margin="5" Text="{Binding ItemSelecionado.Nome, UpdateSourceTrigger=PropertyChanged}"/>
             <RichTextBox Grid.Row="1" Margin="5">
-                <FlowDocument>
-                    <Paragraph>
-                        <Run Text="{Binding AnotacaoSelecionada.Texto, UpdateSourceTrigger=PropertyChanged}" />
-                    </Paragraph>
-                </FlowDocument>
+                <RichTextBox.Document>
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="{Binding AnotacaoSelecionada.Texto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox.Document>
             </RichTextBox>
         </Grid>
     </Grid>
