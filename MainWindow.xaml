@@ -26,6 +26,11 @@
                 <MenuItem Header="Salvar" Click="Salvar_Click"/>
                 <MenuItem Header="Sair" Click="Sair_Click"/>
             </MenuItem>
+            <MenuItem Header="Formatar">
+                <MenuItem Header="Negrito" />
+                <MenuItem Header="Itálico" />
+                <MenuItem Header="Sublinhado" />
+            </MenuItem>
         </Menu>
 
 
