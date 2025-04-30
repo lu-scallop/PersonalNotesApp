@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonalNotesApp.Model" xmlns:viewmodel="clr-namespace:PersonalNotesApp.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        xmlns:conv="clr-namespace:PersonalNotesApp.Converter"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <conv:FlowDocumentToString x:Key="flowConverter" />
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -81,11 +87,16 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBox Grid.Row="0" Margin="5" Text="{Binding ItemSelecionado.Nome, UpdateSourceTrigger=PropertyChanged}"/>
-            <RichTextBox Grid.Row="1" Margin="5">
+            
+            
+            
+            <RichTextBox Grid.Row="1" Margin="5" >
                 <RichTextBox.Document>
                     <FlowDocument>
                         <Paragraph>
-                            <Run Text="{Binding AnotacaoSelecionada.Texto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <Run Text="{Binding AnotacaoSelecionada.Conteudo, 
+                                Converter={StaticResource flowConverter},
+                                Mode=TwoWay}" />
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox.Document>

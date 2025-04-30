@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
+using System.Windows.Documents;
 
 namespace PersonalNotesApp.ViewModel
 {
@@ -24,6 +25,9 @@ namespace PersonalNotesApp.ViewModel
         }
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<Base> Pastas { get; set; }
+
+        public FlowDocument DocumentoSelecionado => 
+            (ItemSelecionado as Anotacao)?.Conteudo;
         public Anotacao? AnotacaoSelecionada => ItemSelecionado as Anotacao;
         public Base _selecionado;
         public Base ItemSelecionado 
@@ -32,7 +36,7 @@ namespace PersonalNotesApp.ViewModel
             {
                 _selecionado = value;
                 OnPropertyChanged(nameof(ItemSelecionado));
-				OnPropertyChanged(nameof(AnotacaoSelecionada));
+				OnPropertyChanged(nameof(DocumentoSelecionado));
 			} 
         }
 
@@ -80,8 +84,9 @@ namespace PersonalNotesApp.ViewModel
                 else if (item is Anotacao anotacao)
                 {
                     var caminhoArquivo = Path.Combine(caminhoRaiz, anotacao.Nome + ".md");
-                    Console.WriteLine(caminhoArquivo);
-                    File.WriteAllText(caminhoArquivo, anotacao.Texto);
+                    Console.WriteLine($"Salvando: "+caminhoArquivo);
+                    string textoParaSalvar = Converter.FlowDocumentToString.Converte(anotacao.Conteudo);
+                    File.WriteAllText(caminhoArquivo, textoParaSalvar);
                 }
             }
         }
