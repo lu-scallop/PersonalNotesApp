@@ -106,9 +106,16 @@ namespace PersonalNotesApp.ViewModel
                 foreach (string arquivos in Directory.GetFiles(caminhoRaiz, "*.md"))
                 {
                     var nomeArquivo = Path.GetFileNameWithoutExtension(arquivos);
-                    var texto = File.ReadAllText(arquivos);
+                    var textoLido = File.ReadAllText(arquivos);
 
-                    colecao.Add(new Anotacao(nomeArquivo) { Texto = texto });
+                    var conteudoDocumento = Converter.FlowDocumentToString.ConverteDeVolta(textoLido);
+
+                    var anotacao = new Anotacao(nomeArquivo)
+                    {
+                        Conteudo = conteudoDocumento
+                    };
+
+                    colecao.Add(anotacao);
                 }
             }
             catch(Exception ex)

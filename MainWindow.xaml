@@ -90,13 +90,11 @@
             
             
             
-            <RichTextBox Grid.Row="1" Margin="5" >
+            <RichTextBox x:Name="rtbConetudo" Grid.Row="1" Margin="5" >
                 <RichTextBox.Document>
                     <FlowDocument>
                         <Paragraph>
-                            <Run Text="{Binding AnotacaoSelecionada.Conteudo, 
-                                Converter={StaticResource flowConverter},
-                                Mode=TwoWay}" />
+                            <Run/>
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox.Document>
