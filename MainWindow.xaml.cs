@@ -55,9 +55,12 @@ namespace PersonalNotesApp
 		}
 		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
-			if (e.NewValue is Anotacao anotacaoselecionado)
+			if (e.NewValue is Anotacao anotacaoSelecionado)
 			{
-				ViewModel.ItemSelecionado = anotacaoselecionado;
+				ViewModel.ItemSelecionado = anotacaoSelecionado;
+				rtbConetudo.Document = anotacaoSelecionado.Conteudo;
+				rtbConetudo.TextChanged -= rtbConetudo_TextChanged;
+				rtbConetudo.TextChanged += rtbConetudo_TextChanged;
 			}
             if (e.NewValue is Pasta pastaSelecionado)
             {
