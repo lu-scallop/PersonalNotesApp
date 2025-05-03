@@ -65,6 +65,9 @@ namespace PersonalNotesApp
             if (e.NewValue is Pasta pastaSelecionado)
             {
 				ViewModel.ItemSelecionado = pastaSelecionado;
+				rtbConetudo.Document = new FlowDocument();
+				rtbConetudo.IsEnabled = false;
+				rtbConetudo.TextChanged -= rtbConetudo_TextChanged;
             }
         }
 		private void tv_Main_MouseDoubleClick(object sender, MouseButtonEventArgs e)
