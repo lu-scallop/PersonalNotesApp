@@ -27,6 +27,7 @@ namespace PersonalNotesApp
 			InitializeComponent();
 			ViewModel = new MainViewModel();
 			DataContext = ViewModel;
+			rtbConteudo.IsEnabled = false;
 		}
 		private void AdicionaNovaPasta_Click(object sender, RoutedEventArgs e)
 		{
@@ -58,18 +59,38 @@ namespace PersonalNotesApp
 			if (e.NewValue is Anotacao anotacaoSelecionado)
 			{
 				ViewModel.ItemSelecionado = anotacaoSelecionado;
-				rtbConetudo.Document = anotacaoSelecionado.Conteudo;
-				rtbConetudo.TextChanged -= rtbConetudo_TextChanged;
-				rtbConetudo.TextChanged += rtbConetudo_TextChanged;
+				rtbConteudo.Document = anotacaoSelecionado.Conteudo;
+				rtbConteudo.TextChanged -= RtbConteudo_TextChanged;
+				rtbConteudo.TextChanged += RtbConteudo_TextChanged;
 			}
-            if (e.NewValue is Pasta pastaSelecionado)
+            else if (e.NewValue is Pasta pastaSelecionado)
             {
 				ViewModel.ItemSelecionado = pastaSelecionado;
-				rtbConetudo.Document = new FlowDocument();
-				rtbConetudo.IsEnabled = false;
-				rtbConetudo.TextChanged -= rtbConetudo_TextChanged;
+				rtbConteudo.Document = new FlowDocument();
+				rtbConteudo.IsEnabled = false;
+				rtbConteudo.TextChanged -= RtbConteudo_TextChanged;
+            }
+			else
+			{
+				ViewModel.ItemSelecionado = null;
+				rtbConteudo.Document = new FlowDocument();
+				rtbConteudo.IsEnabled = false;
+				rtbConteudo.TextChanged -= RtbConteudo_TextChanged;
+			}
+            if (ViewModel.ItemSelecionado is Anotacao)
+            {
+				rtbConteudo.IsEnabled = true;
             }
         }
+
+		private void RtbConteudo_TextChanged(object sender, TextChangedEventArgs e)
+		{
+            if (ViewModel.AnotacaoSelecionada != null && rtbConteudo.Document != ViewModel.AnotacaoSelecionada.Conteudo)
+            {
+				ViewModel.AnotacaoSelecionada.Conteudo = rtbConteudo.Document;
+            }
+        }
+
 		private void tv_Main_MouseDoubleClick(object sender, MouseButtonEventArgs e)
 		{
             if (tv_Main.SelectedItem is Base item)

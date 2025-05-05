@@ -90,7 +90,7 @@
             
             
             
-            <RichTextBox x:Name="rtbConetudo" Grid.Row="1" Margin="5" >
+            <RichTextBox x:Name="rtbConteudo" Grid.Row="1" Margin="5" >
                 <RichTextBox.Document>
                     <FlowDocument>
                         <Paragraph>
