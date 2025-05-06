@@ -54,6 +54,32 @@ namespace PersonalNotesApp
 			ViewModel.Pastas.Clear();
 			ViewModel.MapearPastaEstruturaParaTreeView(ViewModel.CaminhoRaiz, ViewModel.Pastas);
 		}
+
+		private void Negrito_Click(object sender, RoutedEventArgs e)
+		{
+			TextSelection txtSelecionado = rtbConteudo.Selection;
+
+            if (txtSelecionado != null)
+            {
+                if (txtSelecionado.GetPropertyValue(TextElement.FontWeightProperty).Equals(FontWeights.Bold))
+                {
+					txtSelecionado.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
+                }
+				else
+				{
+					txtSelecionado.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
+				}
+            }
+        }
+		private void Italico_Click(object sender, RoutedEventArgs e)
+		{
+			MessageBox.Show("...");
+		}
+
+		private void Sublinhado_Click(object sender, RoutedEventArgs e)
+		{
+			MessageBox.Show("...");
+		}
 		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
 			if (e.NewValue is Anotacao anotacaoSelecionado)
