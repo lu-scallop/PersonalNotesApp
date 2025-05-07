@@ -105,6 +105,20 @@ namespace PersonalNotesApp
 				}
 			}
 		}
+
+		private void AlinharEsquerda_Click(object sender, RoutedEventArgs e)
+		{
+			TextSelection txtSelecionado = rtbConteudo.Selection;
+			txtSelecionado.ApplyPropertyValue(Paragraph.TextAlignmentProperty, TextAlignment.Left);
+		}
+		private void AlinharDireita_Click(object sender, RoutedEventArgs e)
+		{
+			rtbConteudo.Selection.ApplyPropertyValue(Paragraph.TextAlignmentProperty, TextAlignment.Right);
+		}
+		private void AlinharCentro_Click(object sender, RoutedEventArgs e)
+		{
+			rtbConteudo.Selection.ApplyPropertyValue(Paragraph.TextAlignmentProperty, TextAlignment.Center);
+		}
 		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
 			if (e.NewValue is Anotacao anotacaoSelecionado)
