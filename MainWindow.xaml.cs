@@ -1,6 +1,7 @@
 ﻿using PersonalNotesApp.Model;
 using PersonalNotesApp.ViewModel;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows;
@@ -69,16 +70,40 @@ namespace PersonalNotesApp
 				{
 					txtSelecionado.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
 				}
-            }
-        }
+			}
+		}
 		private void Italico_Click(object sender, RoutedEventArgs e)
 		{
-			MessageBox.Show("...");
-		}
+			TextSelection txtSelecionado = rtbConteudo.Selection;
+
+            if (txtSelecionado != null)
+            {
+				if (txtSelecionado.GetPropertyValue(TextElement.FontStyleProperty).Equals(FontStyles.Italic))
+				{
+					txtSelecionado.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal);
+				}
+				else
+				{
+					txtSelecionado.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Italic);
+				}
+			}
+        }
 
 		private void Sublinhado_Click(object sender, RoutedEventArgs e)
 		{
-			MessageBox.Show("...");
+			TextSelection txtSelecionado = rtbConteudo.Selection;
+
+			if (txtSelecionado != null)
+			{
+				if (txtSelecionado.GetPropertyValue(Inline.TextDecorationsProperty).Equals(TextDecorations.Underline))
+				{
+					txtSelecionado.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
+				}
+				else
+				{
+					txtSelecionado.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+				}
+			}
 		}
 		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
