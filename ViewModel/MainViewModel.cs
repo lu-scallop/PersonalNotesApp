@@ -54,23 +54,42 @@ namespace PersonalNotesApp.ViewModel
 
         public void AdicionaNovaPasta()
         {
-            var pasta = new Pasta("Nova Pasta");
+            string nomeUnico = ObterNomeUnico("Nova Pasta", Pastas);
+            var pasta = new Pasta(nomeUnico);
             Pastas.Add(pasta);
         }
 
 		public void AdicionaSubPasta(Pasta pastaSelecionada)
 		{
-            pastaSelecionada.SubPastas.Add(new Pasta("Nova Pasta"));
+            if (pastaSelecionada == null) return;
+            string nomeUnico = ObterNomeUnico("NovaPasta", pastaSelecionada.SubPastas);
+            pastaSelecionada.SubPastas.Add(new Pasta(nomeUnico));
 		}
+
+        private string ObterNomeUnico(string nomeBase,ObservableCollection<Base> colecao)
+        {
+            string nomeFinal = nomeBase;
+            int contador = 1;
+
+            while (colecao.Any(item => item.Nome == nomeFinal))
+            {
+                nomeFinal = $"{nomeBase} ({contador++})";
+            }
+
+            return nomeFinal;
+        }
 
 		public void AdicionaNovaAnotacao()
         {
-            var anotacao = new Anotacao("Nova Anotação");
+            string nomeUnico = ObterNomeUnico("Nova Anotação", Pastas);
+            var anotacao = new Anotacao(nomeUnico);
             Pastas.Add(anotacao);
         }
         public void AdicionaNovaAnotacaoEmSubPasta(Pasta pastaSelecionada)
         {
-            pastaSelecionada.SubPastas.Add(new Anotacao("Nova Anotação"));
+            if (pastaSelecionada == null) return;
+            string nomeUnico = ObterNomeUnico("Nova Anotação", pastaSelecionada.SubPastas);
+            pastaSelecionada.SubPastas.Add(new Anotacao(nomeUnico));
         }
         public void Salvar(string caminhoRaiz, ObservableCollection<Base> pastas)
         {
@@ -84,7 +103,6 @@ namespace PersonalNotesApp.ViewModel
                 else if (item is Anotacao anotacao)
                 {
                     var caminhoArquivo = Path.Combine(caminhoRaiz, anotacao.Nome + ".md");
-                    Console.WriteLine($"Salvando: "+caminhoArquivo);
                     string textoParaSalvar = Converter.FlowDocumentToString.Converte(anotacao.Conteudo);
                     File.WriteAllText(caminhoArquivo, textoParaSalvar);
                 }

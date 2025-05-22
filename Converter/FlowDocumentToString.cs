@@ -13,7 +13,6 @@ namespace PersonalNotesApp.Converter
 	{
 		public static string Converte(FlowDocument documento)
 		{
-			//return new TextRange(documento.ContentStart, documento.ContentEnd).Text;
 
 			var markdownBuilder = new StringBuilder();
 
