@@ -24,13 +24,6 @@ namespace PersonalNotesApp.Converter
                     {
                         if (inline is Run run)
                         {
-							/*
-							string text = run.Text;
-							if (run.FontWeight == FontWeights.Bold) text = $"**{text}**";
-							if (run.FontStyle == FontStyles.Italic) text = $"*{text}*";
-							if (run.TextDecorations.Contains(TextDecorations.Underline[0])) text = $"<u>{text}</u>";
-							*/
-
 							string conteudo = run.Text;
 							bool ehUnderline = run.TextDecorations.Contains(TextDecorations.Underline[0]);
 							bool ehNegrito = run.FontWeight == FontWeights.Bold;
@@ -55,11 +48,11 @@ namespace PersonalNotesApp.Converter
 						}
 						else if(inline is LineBreak)
 						{
-							markdownBuilder.AppendLine();
+							markdownBuilder.AppendLine(" \n");
 						}
                     }
                 }
-				markdownBuilder.AppendLine();
+				markdownBuilder.AppendLine().ToString().TrimEnd(Environment.NewLine.ToCharArray());
             }
 
 			return markdownBuilder.ToString();
@@ -68,10 +61,17 @@ namespace PersonalNotesApp.Converter
 		public static FlowDocument ConverteDeVolta(string textoMarkdown)
 		{
 			FlowDocument documento = new FlowDocument();
-			Paragraph paragraph = new Paragraph();
+
+            if (string.IsNullOrEmpty(textoMarkdown))
+            {
+				documento.Blocks.Add(new Paragraph());
+				return documento;
+            }
+
+			string[] linhas = textoMarkdown.Split(new[] {Environment.NewLine}, StringSplitOptions.None);
 
 
-			var parts = Regex.Split(textoMarkdown, @"(\*\*.*?\*\*|\*.*?\*|<u>.*?</u>)");
+            var parts = Regex.Split(textoMarkdown, @"(\*\*.*?\*\*|\*.*?\*|<u>.*?</u>)");
 
 			foreach (var part in parts)
 			{
