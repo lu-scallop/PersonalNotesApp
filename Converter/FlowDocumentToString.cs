@@ -24,12 +24,34 @@ namespace PersonalNotesApp.Converter
                     {
                         if (inline is Run run)
                         {
+							/*
 							string text = run.Text;
 							if (run.FontWeight == FontWeights.Bold) text = $"**{text}**";
 							if (run.FontStyle == FontStyles.Italic) text = $"*{text}*";
 							if (run.TextDecorations.Contains(TextDecorations.Underline[0])) text = $"<u>{text}</u>";
+							*/
 
-							markdownBuilder.Append(text);
+							string conteudo = run.Text;
+							bool ehUnderline = run.TextDecorations.Contains(TextDecorations.Underline[0]);
+							bool ehNegrito = run.FontWeight == FontWeights.Bold;
+							bool ehItalico = run.FontStyle == FontStyles.Italic;
+
+							if (ehUnderline) conteudo = $"<u>{conteudo}</u>";
+
+							if (ehNegrito && ehItalico) conteudo = $"***{conteudo}***";
+
+							else if (ehNegrito)
+							{
+								conteudo = $"**{conteudo}**";
+							}
+
+							else if (ehItalico)
+                            {
+								conteudo = $"*{conteudo}*";
+                            }
+
+
+                            markdownBuilder.Append(conteudo);
 						}
 						else if(inline is LineBreak)
 						{
