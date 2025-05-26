@@ -126,7 +126,7 @@ namespace PersonalNotesApp.ViewModel
                     var nomeArquivo = Path.GetFileNameWithoutExtension(arquivos);
                     var textoLido = File.ReadAllText(arquivos);
 
-                    var conteudoDocumento = Converter.FlowDocumentToString.ConverteDeVolta(textoLido);
+                    FlowDocument conteudoDocumento = Converter.FlowDocumentToString.ConverteDeVolta(textoLido);
 
                     var anotacao = new Anotacao(nomeArquivo)
                     {

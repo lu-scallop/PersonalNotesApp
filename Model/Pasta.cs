@@ -10,8 +10,6 @@ namespace PersonalNotesApp.Model
 {
     public class Pasta : Base
     {
-
-		
 		public ObservableCollection<Base> SubPastas { get; set; }
 
 		public Pasta(string nome)

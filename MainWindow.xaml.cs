@@ -50,12 +50,6 @@ namespace PersonalNotesApp
 		{
 			ViewModel.Salvar(ViewModel.CaminhoRaiz, ViewModel.Pastas);
 		}
-		private void CarregarPastasEnotas_Click(object sender, RoutedEventArgs e)
-		{
-			ViewModel.Pastas.Clear();
-			ViewModel.MapearPastaEstruturaParaTreeView(ViewModel.CaminhoRaiz, ViewModel.Pastas);
-		}
-
 		private void Negrito_Click(object sender, RoutedEventArgs e)
 		{
 			TextSelection txtSelecionado = rtbConteudo.Selection;

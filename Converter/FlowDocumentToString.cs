@@ -13,7 +13,6 @@ namespace PersonalNotesApp.Converter
 	{
 		public static string Converte(FlowDocument documento)
 		{
-
 			var markdownBuilder = new StringBuilder();
 
 			foreach (var block in documento.Blocks)
@@ -62,12 +61,13 @@ namespace PersonalNotesApp.Converter
 		{
 			FlowDocument documento = new FlowDocument();
 
+			
             if (string.IsNullOrEmpty(textoMarkdown))
             {
 				documento.Blocks.Add(new Paragraph());
 				return documento;
             }
-
+			
 			string[] linhas = textoMarkdown.Split(new[] {Environment.NewLine}, StringSplitOptions.None);
 
 
@@ -126,10 +126,6 @@ namespace PersonalNotesApp.Converter
 					paragrafo.Inlines.Add(new Run(linhaContent.Substring(lastIndex)));
 				}
 				documento.Blocks.Add(paragrafo);
-            }
-            if (documento.Blocks.Count == 0)
-            {
-				documento.Blocks.Add(new Paragraph());
             }
 			return documento;
         }
