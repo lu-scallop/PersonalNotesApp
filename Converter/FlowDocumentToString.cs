@@ -71,32 +71,67 @@ namespace PersonalNotesApp.Converter
 			string[] linhas = textoMarkdown.Split(new[] {Environment.NewLine}, StringSplitOptions.None);
 
 
-            var parts = Regex.Split(textoMarkdown, @"(\*\*.*?\*\*|\*.*?\*|<u>.*?</u>)");
+            foreach (string linhaContent in linhas)
+            {
+				Paragraph paragrafo = new Paragraph();
+				int lastIndex = 0;
 
-			foreach (var part in parts)
-			{
-                if (Regex.IsMatch(part, @"\*\*(.*?)\*\*"))
+				Regex inlineRegex = new Regex(@"(\*\*\*(.*?)\*\*\*|\*\*(.*?)\*\*|\*(.*?)\*|<u>(.*?)</u>)", RegexOptions.Multiline);
+				Match m = inlineRegex.Match(linhaContent);
+
+                while (m.Success)
                 {
-					paragraph.Inlines.Add(new Run(part.Trim('*')) {FontWeight=FontWeights.Bold});
+                    if (m.Index > lastIndex)
+                    {
+						paragrafo.Inlines.Add(new Run(linhaContent.Substring(lastIndex, m.Index - lastIndex)));
+                    }
+
+					Run formatedRun = new Run();
+					string valorCapturado;
+
+                    if (m.Groups[1].Success)
+                    {
+						valorCapturado = m.Groups[2].Value;
+						formatedRun.Text = valorCapturado;
+						formatedRun.FontWeight = FontWeights.Bold;
+						formatedRun.FontStyle = FontStyles.Italic;
+                    }
+					else if (m.Groups[3].Success)
+                    {
+						valorCapturado = m.Groups[4].Value;
+						formatedRun.Text = valorCapturado;
+						formatedRun.FontWeight = FontWeights.Bold;
+                    }
+					else if (m.Groups[5].Success)
+                    {
+						valorCapturado = m.Groups[6].Value;
+						formatedRun.Text = valorCapturado;
+						formatedRun.FontStyle = FontStyles.Italic;
+                    }
+                    else if (m.Groups[7].Success)
+                    {
+                        valorCapturado = m.Groups[8].Value;
+						formatedRun.Text = valorCapturado;
+						TextDecorationCollection formatoSublinhado = new TextDecorationCollection();
+						formatoSublinhado.Add(TextDecorations.Underline[0]);
+						formatedRun.TextDecorations = formatoSublinhado;
+
+                    }
+					paragrafo.Inlines.Add(formatedRun);
+					lastIndex = m.Index + m.Length;
+					m = m.NextMatch();
                 }
-                else if (Regex.IsMatch(part, @"\*(.*?)\*"))
-                {
-					paragraph.Inlines.Add(new Run(part.Trim('*')) { FontStyle = FontStyles.Italic});
-                }
-				else if(Regex.IsMatch(part, @"<u>.*?</u>"))
+				if(lastIndex < linhaContent.Length)
 				{
-					paragraph.Inlines.Add(new Run(Regex.Match(part, @"<u>(.*?)</u>").Groups[1].Value)
-					{
-						TextDecorations = TextDecorations.Underline
-					});
+					paragrafo.Inlines.Add(new Run(linhaContent.Substring(lastIndex)));
 				}
-				else
-				{
-					paragraph.Inlines.Add(new Run(part));
-				}
+				documento.Blocks.Add(paragrafo);
             }
-			documento.Blocks.Add(paragraph);
+            if (documento.Blocks.Count == 0)
+            {
+				documento.Blocks.Add(new Paragraph());
+            }
 			return documento;
-		}
+        }
 	}
 }
