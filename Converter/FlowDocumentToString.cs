@@ -19,6 +19,32 @@ namespace PersonalNotesApp.Converter
 			{
                 if (block is Paragraph paragraph)
                 {
+					bool temAlinhamento = paragraph.TextAlignment != TextAlignment.Left;
+					string tagAbertura = "";
+					string tagFechamento = "";
+
+					if(temAlinhamento)
+					{
+						switch (paragraph.TextAlignment)
+						{
+							case TextAlignment.Right:
+								tagAbertura = "<div align=\"right\">";
+								tagFechamento = "</div>";
+								break;
+							case TextAlignment.Center:
+								tagAbertura = "<div align=\"center\">";
+								tagFechamento = "</div>";
+								break;
+							case TextAlignment.Justify:
+								tagAbertura = "<div align=\"justify\">";
+								tagFechamento = "</div>";
+								break;
+						}
+					}
+
+					if (temAlinhamento) markdownBuilder.Append(tagAbertura); 
+
+
                     foreach (var inline in paragraph.Inlines)
                     {
                         if (inline is Run run)
@@ -42,7 +68,6 @@ namespace PersonalNotesApp.Converter
 								conteudo = $"*{conteudo}*";
                             }
 
-
                             markdownBuilder.Append(conteudo);
 						}
 						else if(inline is LineBreak)
@@ -50,9 +75,10 @@ namespace PersonalNotesApp.Converter
 							markdownBuilder.AppendLine(" \n");
 						}
                     }
+					if (temAlinhamento) markdownBuilder.Append(tagFechamento);
                 }
 				markdownBuilder.AppendLine().ToString().TrimEnd(Environment.NewLine.ToCharArray());
-            }
+			}
 
 			return markdownBuilder.ToString();
 		}
@@ -61,7 +87,6 @@ namespace PersonalNotesApp.Converter
 		{
 			FlowDocument documento = new FlowDocument();
 
-			
             if (string.IsNullOrEmpty(textoMarkdown))
             {
 				documento.Blocks.Add(new Paragraph());
@@ -71,19 +96,50 @@ namespace PersonalNotesApp.Converter
 			string[] linhas = textoMarkdown.Split(new[] {Environment.NewLine}, StringSplitOptions.None);
 
 
-            foreach (string linhaContent in linhas)
+            foreach (string conteudoLinha in linhas)
             {
 				Paragraph paragrafo = new Paragraph();
-				int lastIndex = 0;
+				string conteudoAlinhamento = conteudoLinha;
 
-				Regex inlineRegex = new Regex(@"(\*\*\*(.*?)\*\*\*|\*\*(.*?)\*\*|\*(.*?)\*|<u>(.*?)</u>)", RegexOptions.Multiline);
-				Match m = inlineRegex.Match(linhaContent);
+				TextAlignment alinhamento = TextAlignment.Left;
+
+				if (conteudoAlinhamento.StartsWith("<div align=\"right\">") && conteudoAlinhamento.EndsWith("</div>"))
+				{
+					alinhamento = TextAlignment.Right;
+					string tagAbertura = "<div align=\"right\">";
+					string tagFechamento = "</div>";
+					conteudoAlinhamento = conteudoAlinhamento.Substring(tagAbertura.Length,
+						conteudoAlinhamento.Length - tagAbertura.Length - tagFechamento.Length);
+				}
+				else if (conteudoAlinhamento.StartsWith("<div align=\"center\">") && conteudoAlinhamento.EndsWith("</div>"))
+                {
+                    alinhamento = TextAlignment.Center;
+					string tagAbertura = "<div align=\"center\">";
+					string tagFechamento = "</div>";
+					conteudoAlinhamento = conteudoAlinhamento.Substring(tagAbertura.Length,
+						conteudoAlinhamento.Length - tagAbertura.Length - tagFechamento.Length);
+                }
+				else if (conteudoAlinhamento.StartsWith("<div align=\"justify\">") && conteudoAlinhamento.EndsWith("</div>"))
+				{
+					alinhamento = TextAlignment.Justify;
+					string tagAbertura = "<div align=\"justify\">";
+					string tagFechamento = "</div>";
+					conteudoAlinhamento = conteudoAlinhamento.Substring(tagAbertura.Length,
+						conteudoAlinhamento.Length - tagAbertura.Length - tagFechamento.Length);
+				}
+
+				paragrafo.TextAlignment = alinhamento;
+
+                int lastIndex = 0;
+
+				Regex inlineRegex = new Regex(@"(\*\*\*(.*?)\*\*\*)|(\*\*(.*?)\*\*)|(\*(.*?)\*)|(<u>(.*?)</u>)", RegexOptions.Multiline);
+				Match m = inlineRegex.Match(conteudoAlinhamento);
 
                 while (m.Success)
                 {
                     if (m.Index > lastIndex)
                     {
-						paragrafo.Inlines.Add(new Run(linhaContent.Substring(lastIndex, m.Index - lastIndex)));
+						paragrafo.Inlines.Add(new Run(conteudoAlinhamento.Substring(lastIndex, m.Index - lastIndex)));
                     }
 
 					Run formatedRun = new Run();
@@ -112,18 +168,22 @@ namespace PersonalNotesApp.Converter
                     {
                         valorCapturado = m.Groups[8].Value;
 						formatedRun.Text = valorCapturado;
+						formatedRun.TextDecorations = TextDecorations.Underline;
+						/*
 						TextDecorationCollection formatoSublinhado = new TextDecorationCollection();
 						formatoSublinhado.Add(TextDecorations.Underline[0]);
 						formatedRun.TextDecorations = formatoSublinhado;
+						*/
+
 
                     }
 					paragrafo.Inlines.Add(formatedRun);
 					lastIndex = m.Index + m.Length;
 					m = m.NextMatch();
                 }
-				if(lastIndex < linhaContent.Length)
+				if(lastIndex < conteudoLinha.Length)
 				{
-					paragrafo.Inlines.Add(new Run(linhaContent.Substring(lastIndex)));
+					paragrafo.Inlines.Add(new Run(conteudoAlinhamento.Substring(lastIndex)));
 				}
 				documento.Blocks.Add(paragrafo);
             }
