@@ -54,9 +54,27 @@ namespace PersonalNotesApp.Converter
 							bool ehNegrito = run.FontWeight == FontWeights.Bold;
 							bool ehItalico = run.FontStyle == FontStyles.Italic;
 
-							if (ehUnderline) conteudo = $"<u>{conteudo}</u>";
 
-							if (ehNegrito && ehItalico) conteudo = $"***{conteudo}***";
+							if (ehNegrito && ehItalico && ehUnderline) 
+							{ 
+								conteudo = $"***<u>{conteudo}</u>***"; 
+							}
+
+							else if (ehUnderline && ehNegrito)
+							{
+								conteudo = $"**<u>{conteudo}</u>**";
+							}
+
+							else if (ehItalico && ehUnderline)
+							{
+								conteudo = $"*<u>{conteudo}</u>*";
+							}
+
+
+							else if (ehNegrito && ehItalico)
+							{
+								conteudo = $"***{conteudo}***";
+							}
 
 							else if (ehNegrito)
 							{
@@ -64,9 +82,14 @@ namespace PersonalNotesApp.Converter
 							}
 
 							else if (ehItalico)
-                            {
+							{
 								conteudo = $"*{conteudo}*";
-                            }
+							}
+
+							else if (ehUnderline)
+							{
+								conteudo = $"<u>{conteudo}</u>";
+							}
 
                             markdownBuilder.Append(conteudo);
 						}
@@ -132,7 +155,7 @@ namespace PersonalNotesApp.Converter
 
                 int lastIndex = 0;
 
-				Regex inlineRegex = new Regex(@"(\*\*\*(.*?)\*\*\*)|(\*\*(.*?)\*\*)|(\*(.*?)\*)|(<u>(.*?)</u>)", RegexOptions.Multiline);
+				Regex inlineRegex = new Regex(@"(\*\*\*<u>(.*?)</u>\*\*\*)|(\*\*<u>(.*?)</u>\*\*)|(\*<u>(.*?)</u>\*)|(\*\*\*(.*?)\*\*\*)|(\*\*(.*?)\*\*)|(\*(.*?)\*)|(<u>(.*?)</u>)", RegexOptions.Multiline);
 				Match m = inlineRegex.Match(conteudoAlinhamento);
 
                 while (m.Success)
@@ -151,32 +174,49 @@ namespace PersonalNotesApp.Converter
 						formatedRun.Text = valorCapturado;
 						formatedRun.FontWeight = FontWeights.Bold;
 						formatedRun.FontStyle = FontStyles.Italic;
+						formatedRun.TextDecorations = TextDecorations.Underline;
                     }
 					else if (m.Groups[3].Success)
                     {
 						valorCapturado = m.Groups[4].Value;
 						formatedRun.Text = valorCapturado;
+						formatedRun.TextDecorations = TextDecorations.Underline;
 						formatedRun.FontWeight = FontWeights.Bold;
-                    }
+						
+					}
 					else if (m.Groups[5].Success)
                     {
 						valorCapturado = m.Groups[6].Value;
 						formatedRun.Text = valorCapturado;
+						formatedRun.TextDecorations = TextDecorations.Underline;
 						formatedRun.FontStyle = FontStyles.Italic;
-                    }
-                    else if (m.Groups[7].Success)
+						
+					}
+					else if (m.Groups[7].Success)
+					{
+						valorCapturado = m.Groups[8].Value;
+						formatedRun.Text = valorCapturado;
+						formatedRun.FontWeight = FontWeights.Bold;
+						formatedRun.FontStyle = FontStyles.Italic;
+					}
+					else if (m.Groups[9].Success)
                     {
-                        valorCapturado = m.Groups[8].Value;
+                        valorCapturado = m.Groups[10].Value;
+						formatedRun.Text = valorCapturado;
+						formatedRun.FontWeight = FontWeights.Bold;
+					}
+					else if (m.Groups[11].Success)
+					{
+						valorCapturado = m.Groups[12].Value;
+						formatedRun.Text = valorCapturado;
+						formatedRun.FontStyle = FontStyles.Italic;
+					}
+					else if (m.Groups[13].Success)
+					{
+						valorCapturado = m.Groups[14].Value;
 						formatedRun.Text = valorCapturado;
 						formatedRun.TextDecorations = TextDecorations.Underline;
-						/*
-						TextDecorationCollection formatoSublinhado = new TextDecorationCollection();
-						formatoSublinhado.Add(TextDecorations.Underline[0]);
-						formatedRun.TextDecorations = formatoSublinhado;
-						*/
-
-
-                    }
+					}
 					paragrafo.Inlines.Add(formatedRun);
 					lastIndex = m.Index + m.Length;
 					m = m.NextMatch();
