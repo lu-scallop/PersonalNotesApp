@@ -6,10 +6,23 @@
         xmlns:local="clr-namespace:PersonalNotesApp.Model" xmlns:viewmodel="clr-namespace:PersonalNotesApp.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         xmlns:conv="clr-namespace:PersonalNotesApp.Converter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Personal Notes App" Height="450" Width="800">
 
     <Window.Resources>
         <conv:FlowDocumentToString x:Key="flowConverter" />
+        <Style x:Key="EstiloMenuPrincipal" TargetType="MenuItem">
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{x:Static SystemColors.ControlLightBrush}"/>
+                </Trigger>
+                <Trigger Property="IsHighlighted" Value="True">
+                    <Setter Property="Background" Value="#EEEEEE"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -25,18 +38,18 @@
         </Grid.ColumnDefinitions>
 
         <Menu Grid.Row="0" Grid.ColumnSpan="3" Background="LightGray" Margin="0,0,0,30"  >
-            <MenuItem Header="Arquivo">
+            <MenuItem Header="Arquivo" Style="{StaticResource EstiloMenuPrincipal}">
                 <MenuItem Header="Adicionar Pasta" Click="AdicionaNovaPasta_Click" />
                 <MenuItem Header="Adicionar Anotação" Click="AdicionaNovaAnotacao_Click" />
                 <MenuItem Header="Salvar" Click="Salvar_Click"/>
                 <MenuItem Header="Sair" Click="Sair_Click"/>
             </MenuItem>
-            <MenuItem Header="Estlizar">
+            <MenuItem Header="Estlizar" Style="{StaticResource EstiloMenuPrincipal}">
                 <MenuItem Header="B" Click="Negrito_Click"/>
                 <MenuItem Header="I" Click="Italico_Click"/>
                 <MenuItem Header="U" Click="Sublinhado_Click"/>
             </MenuItem>
-            <MenuItem Header="Alinhar">
+            <MenuItem Header="Alinhar" Style="{StaticResource EstiloMenuPrincipal}">
                 <MenuItem Header="Esquerda" Click="AlinharEsquerda_Click"/>
                 <MenuItem Header="Centro" Click="AlinharCentro_Click"/>
                 <MenuItem Header="Direita" Click="AlinharDireita_Click"/>
