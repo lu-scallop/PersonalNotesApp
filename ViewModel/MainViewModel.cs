@@ -91,6 +91,51 @@ namespace PersonalNotesApp.ViewModel
             string nomeUnico = ObterNomeUnico("Nova Anotação", pastaSelecionada.SubPastas);
             pastaSelecionada.SubPastas.Add(new Anotacao(nomeUnico));
         }
+        public void Excluir(Base itemSelecionado, string caminhoRaiz)
+        {
+            if (itemSelecionado is Pasta pasta)
+            {
+                var pastaRemovida = Pastas.Remove(pasta) ? "Pasta removida": "Erro";
+                if (pastaRemovida.Equals("Pasta removida"))
+                {
+                    foreach (var diretorio in Directory.GetDirectories(caminhoRaiz))
+                    {
+                        Directory.Delete(diretorio, true);
+                    }
+                }
+
+            }
+			if (itemSelecionado is Pasta subPasta)
+			{
+                //var subPastaRemovida = 
+                subPasta.SubPastas.Remove(subPasta);
+                /*
+				if (subPastaRemovida.Equals("Pasta removida"))
+				{
+					foreach (var diretorio in Directory.GetDirectories(caminhoRaiz))
+					{
+						Directory.Delete(diretorio, true);
+					}
+				}
+                */
+
+			}
+			else if (itemSelecionado is Anotacao anotacao)
+            {
+                var anotacaoRemovida = Pastas.Remove(anotacao) ? "Anotação removida" : "Erro";
+                if (anotacaoRemovida.Equals("Anotação removida"))
+                {
+                    string nomeArquivo = anotacao.Nome+".md";
+                    string caminhoArquivo = Path.Combine(caminhoRaiz, nomeArquivo);
+
+                    if (File.Exists(caminhoArquivo))
+                    {
+                        File.Delete(caminhoArquivo);
+                    }
+                }
+            }
+
+        }
         public void Salvar(string caminhoRaiz, ObservableCollection<Base> pastas)
         {
             foreach (var item in pastas)

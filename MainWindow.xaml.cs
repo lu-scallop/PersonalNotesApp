@@ -50,6 +50,10 @@ namespace PersonalNotesApp
 		{
 			ViewModel.Salvar(ViewModel.CaminhoRaiz, ViewModel.Pastas);
 		}
+		private void Excluir_Click(object sender, RoutedEventArgs e)
+		{
+			ViewModel.Excluir(ViewModel.ItemSelecionado, ViewModel.CaminhoRaiz);
+		}
 		private void Negrito_Click(object sender, RoutedEventArgs e)
 		{
 			TextSelection txtSelecionado = rtbConteudo.Selection;
@@ -113,7 +117,7 @@ namespace PersonalNotesApp
 		{
 			rtbConteudo.Selection.ApplyPropertyValue(Paragraph.TextAlignmentProperty, TextAlignment.Center);
 		}
-		private void tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+		private void Tv_Main_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
 		{
 			if (e.NewValue is Anotacao anotacaoSelecionado)
 			{
@@ -150,9 +154,9 @@ namespace PersonalNotesApp
             }
         }
 
-		private void tv_Main_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+		private void Tv_Main_MouseDoubleClick(object sender, MouseButtonEventArgs e)
 		{
-            if (tv_Main.SelectedItem is Base item)
+            if (Tv_Main.SelectedItem is Base item)
             {
 				item.EditaNome = true;
             }

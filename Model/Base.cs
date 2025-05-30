@@ -13,6 +13,8 @@ namespace PersonalNotesApp.Model
 		protected void OnPropertyChanged(string propertyName) =>
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		private bool _editaNome;
+
+		
 		public bool EditaNome
 		{
 			get => _editaNome;
@@ -22,6 +24,7 @@ namespace PersonalNotesApp.Model
 				OnPropertyChanged(nameof(EditaNome));
 			}
 		}
+		
 		private string _nome = string.Empty;
 		public string Nome 
 		{
