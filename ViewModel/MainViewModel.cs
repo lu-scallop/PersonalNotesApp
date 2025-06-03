@@ -62,7 +62,7 @@ namespace PersonalNotesApp.ViewModel
 		public void AdicionaSubPasta(Pasta pastaSelecionada)
 		{
             if (pastaSelecionada == null) return;
-            string nomeUnico = ObterNomeUnico("NovaPasta", pastaSelecionada.SubPastas);
+            string nomeUnico = ObterNomeUnico("Nova Pasta", pastaSelecionada.SubPastas);
             pastaSelecionada.SubPastas.Add(new Pasta(nomeUnico));
 		}
 
@@ -91,52 +91,47 @@ namespace PersonalNotesApp.ViewModel
             string nomeUnico = ObterNomeUnico("Nova Anotação", pastaSelecionada.SubPastas);
             pastaSelecionada.SubPastas.Add(new Anotacao(nomeUnico));
         }
-        public void Excluir(Base itemSelecionado, string caminhoRaiz)
+
+		//Base itemSelecionado, string caminhoRaiz
+		public void Excluir(string caminhoRaiz, ObservableCollection<Base> colecao)
         {
-            if (itemSelecionado is Pasta pasta)
+            foreach (string diretorio in Directory.GetDirectories(caminhoRaiz))
             {
-                var pastaRemovida = Pastas.Remove(pasta) ? "Pasta removida": "Erro";
+				var pastaColecao = new Pasta(Path.GetFileName(diretorio));
+				Directory.Delete(diretorio, true);
+                colecao.Remove(pastaColecao);
+
+
+
+                Excluir(diretorio, pastaColecao.SubPastas);
+            }
+
+
+            /*
+			
+            Excluir(string caminhoRaiz, Base itemSelecionado)
+			if (itemSelecionado is Pasta pasta)
+			{
+				var pastaRemovida = Pastas.Remove(pasta) ? "Pasta removida" : "Erro";
                 if (pastaRemovida.Equals("Pasta removida"))
                 {
-                    foreach (var diretorio in Directory.GetDirectories(caminhoRaiz))
-                    {
-                        Directory.Delete(diretorio, true);
-                    }
-                }
-
-            }
-			if (itemSelecionado is Pasta subPasta)
-			{
-                //var subPastaRemovida = 
-                subPasta.SubPastas.Remove(subPasta);
-                /*
-				if (subPastaRemovida.Equals("Pasta removida"))
-				{
 					foreach (var diretorio in Directory.GetDirectories(caminhoRaiz))
 					{
 						Directory.Delete(diretorio, true);
 					}
+                    
 				}
-                */
-
+                
 			}
 			else if (itemSelecionado is Anotacao anotacao)
-            {
-                var anotacaoRemovida = Pastas.Remove(anotacao) ? "Anotação removida" : "Erro";
-                if (anotacaoRemovida.Equals("Anotação removida"))
-                {
-                    string nomeArquivo = anotacao.Nome+".md";
-                    string caminhoArquivo = Path.Combine(caminhoRaiz, nomeArquivo);
-
-                    if (File.Exists(caminhoArquivo))
-                    {
-                        File.Delete(caminhoArquivo);
-                    }
-                }
-            }
+			{
+				var caminhoArquivo = Path.Combine(caminhoRaiz, anotacao.Nome + ".md");
+				File.Delete(caminhoArquivo);
+			}
+            */
 
         }
-        public void Salvar(string caminhoRaiz, ObservableCollection<Base> pastas)
+		public void Salvar(string caminhoRaiz, ObservableCollection<Base> pastas)
         {
             foreach (var item in pastas)
             {

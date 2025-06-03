@@ -52,7 +52,7 @@ namespace PersonalNotesApp
 		}
 		private void Excluir_Click(object sender, RoutedEventArgs e)
 		{
-			ViewModel.Excluir(ViewModel.ItemSelecionado, ViewModel.CaminhoRaiz);
+			ViewModel.Excluir(ViewModel.CaminhoRaiz, ViewModel.Pastas);
 		}
 		private void Negrito_Click(object sender, RoutedEventArgs e)
 		{
