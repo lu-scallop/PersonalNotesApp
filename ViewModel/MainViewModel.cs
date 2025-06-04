@@ -92,8 +92,6 @@ namespace PersonalNotesApp.ViewModel
             pastaSelecionada.SubPastas.Add(new Anotacao(nomeUnico));
         }
 
-		////EXCLUIR pelo Claude
-
 		public void ExcluirItem(Base itemParaExcluir, ObservableCollection<Base> colecaoOrigem = null)
 		{
 			if (itemParaExcluir == null) return;
