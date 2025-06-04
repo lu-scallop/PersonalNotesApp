@@ -92,45 +92,100 @@ namespace PersonalNotesApp.ViewModel
             pastaSelecionada.SubPastas.Add(new Anotacao(nomeUnico));
         }
 
-		//Base itemSelecionado, string caminhoRaiz
-		public void Excluir(string caminhoRaiz, ObservableCollection<Base> colecao)
-        {
-            foreach (string diretorio in Directory.GetDirectories(caminhoRaiz))
-            {
-				var pastaColecao = new Pasta(Path.GetFileName(diretorio));
-				Directory.Delete(diretorio, true);
-                colecao.Remove(pastaColecao);
+		////EXCLUIR pelo Claude
 
+		public void ExcluirItem(Base itemParaExcluir, ObservableCollection<Base> colecaoOrigem = null)
+		{
+			if (itemParaExcluir == null) return;
 
-
-                Excluir(diretorio, pastaColecao.SubPastas);
-            }
-
-
-            /*
 			
-            Excluir(string caminhoRaiz, Base itemSelecionado)
-			if (itemSelecionado is Pasta pasta)
-			{
-				var pastaRemovida = Pastas.Remove(pasta) ? "Pasta removida" : "Erro";
-                if (pastaRemovida.Equals("Pasta removida"))
-                {
-					foreach (var diretorio in Directory.GetDirectories(caminhoRaiz))
-					{
-						Directory.Delete(diretorio, true);
-					}
-                    
-				}
-                
-			}
-			else if (itemSelecionado is Anotacao anotacao)
-			{
-				var caminhoArquivo = Path.Combine(caminhoRaiz, anotacao.Nome + ".md");
-				File.Delete(caminhoArquivo);
-			}
-            */
+			if (colecaoOrigem == null)
+				colecaoOrigem = Pastas;
 
-        }
+			
+			if (colecaoOrigem.Contains(itemParaExcluir))
+			{
+				
+				ExcluirDoSistemaArquivos(itemParaExcluir);
+
+				
+				colecaoOrigem.Remove(itemParaExcluir);
+
+				Console.WriteLine($"Item '{itemParaExcluir.Nome}' excluído com sucesso.");
+			}
+			else
+			{
+				
+				ExcluirItemRecursivo(itemParaExcluir, colecaoOrigem);
+			}
+		}
+
+		private void ExcluirDoSistemaArquivos(Base item)
+		{
+			string caminhoItem = ObterCaminhoCompleto(item);
+
+			try
+			{
+				if (item is Pasta)
+				{
+					if (Directory.Exists(caminhoItem))
+					{
+						Directory.Delete(caminhoItem, true);
+						Console.WriteLine($"Diretório excluído: {caminhoItem}");
+					}
+				}
+				else if (item is Anotacao)
+				{
+					string caminhoArquivo = caminhoItem + ".md";
+					if (File.Exists(caminhoArquivo))
+					{
+						File.Delete(caminhoArquivo);
+						Console.WriteLine($"Arquivo excluído: {caminhoArquivo}");
+					}
+				}
+			}
+			catch (IOException ex)
+			{
+				Console.WriteLine($"Erro ao excluir {item.Nome}: {ex.Message}");
+			}
+		}
+
+		private bool ExcluirItemRecursivo(Base itemParaExcluir, ObservableCollection<Base> colecao)
+		{
+			foreach (var item in colecao.ToList()) 
+			{
+				if (item == itemParaExcluir)
+				{
+					ExcluirDoSistemaArquivos(itemParaExcluir);
+					colecao.Remove(itemParaExcluir);
+					Console.WriteLine($"Item '{itemParaExcluir.Nome}' excluído com sucesso.");
+					return true;
+				}
+
+				if (item is Pasta pasta)
+				{
+					if (ExcluirItemRecursivo(itemParaExcluir, pasta.SubPastas))
+						return true;
+				}
+			}
+
+			return false;
+		}
+
+		private string ObterCaminhoCompleto(Base item)
+		{
+			return ConstruirCaminhoHierarquico(item);
+		}
+
+		private string ConstruirCaminhoHierarquico(Base item)
+		{
+			List<string> partesCaminho = new List<string>();
+
+			partesCaminho.Add(item.Nome);
+			string caminhoCompleto = Path.Combine(CaminhoRaiz, Path.Combine(partesCaminho.ToArray()));
+			return caminhoCompleto;
+		}
+
 		public void Salvar(string caminhoRaiz, ObservableCollection<Base> pastas)
         {
             foreach (var item in pastas)
