@@ -13,4 +13,13 @@
     <Content Include="assets\favicon.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PersonalNotesApp.Test\Converter\" />
+    <Folder Include="PersonalNotesApp.Test\ViewModel\" />
+  </ItemGroup>
+
 </Project>
