@@ -1,0 +1,13 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build Results
+[Bb]in/
+[Oo]bj/
+
+# Others
+*.log
+*.vspscc
+*.vssscc
