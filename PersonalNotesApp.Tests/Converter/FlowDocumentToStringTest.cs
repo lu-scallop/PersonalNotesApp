@@ -22,7 +22,29 @@ namespace PersonalNotesApp.Tests.Converter
 			//Assert
 			Assert.NotNull(textoConvertido);
 			Assert.IsType<string>(textoConvertido);
-			Assert.Contains("Isso é um teste!", textoConvertido);
+			Assert.Contains("Isto é um teste!", textoConvertido);
+			
+		}
+
+		[Fact]
+		public void Converte_FlowDocumentParaStringVazia_RetornaStringVazia()
+		{
+			var flowDocument = new FlowDocument();
+
+			var textoVazio = FlowDocumentToString.Converte(flowDocument);
+
+			Assert.NotNull(textoVazio);
+			Assert.Contains(string.Empty, textoVazio.TrimEnd());
+		}
+
+		[Fact]
+		public void Converte_FlowDocumentRetornaNulo_LancaExcecao()
+		{
+			//Arrange
+			FlowDocument flowDocument = null;
+
+			//Act & Assert
+			Assert.Throws<ArgumentNullException>(() => FlowDocumentToString.Converte(flowDocument));
 			
 		}
 	}
