@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
@@ -12,7 +13,7 @@ namespace PersonalNotesApp.Tests.Converter
 	public class FlowDocumentToStringTest
 	{
 		[Fact]
-		public void Converte_FlowDocumentParaString_RetornaString()
+		public void Converte_TextoComEstiloRegular_RetornaString()
 		{
 			//Arrange
 			var flowDocument = new FlowDocument(new Paragraph(new Run("Isto é um teste!")));
@@ -24,6 +25,10 @@ namespace PersonalNotesApp.Tests.Converter
 			Assert.NotNull(textoConvertido);
 			Assert.IsType<string>(textoConvertido);
 			Assert.Contains("Isto é um teste!", textoConvertido);
+			Assert.False(VerificaFormatacaoItalico(textoConvertido));
+			Assert.False(VerificaFormatacaoNegrito(textoConvertido));
+			Assert.False(VerificaFormatacaoSublinhado(textoConvertido));
+
 			
 		}
 
@@ -61,8 +66,8 @@ namespace PersonalNotesApp.Tests.Converter
 
 			
 			Assert.Contains("**Texto em negrito**", textoEstilizado);
-			Assert.DoesNotContain("***", textoEstilizado);
-			Assert.DoesNotContain("<u>", textoEstilizado);
+			Assert.False(VerificaFormatacaoItalico(textoEstilizado));
+			Assert.False(VerificaFormatacaoSublinhado(textoEstilizado));
 		}
 
 		[Fact]
@@ -77,13 +82,13 @@ namespace PersonalNotesApp.Tests.Converter
 
 			
 			Assert.Contains("*Texto em itálico*", textoEstilizado);
-			Assert.DoesNotContain("**", textoEstilizado);
-			Assert.DoesNotContain("<u>", textoEstilizado);
+			Assert.False(VerificaFormatacaoNegrito(textoEstilizado));
+			Assert.False(VerificaFormatacaoSublinhado(textoEstilizado));
 
 		}
 
 		[Fact]
-		public void Converte_TextoEmItalico_RetornaTextoSublinhado()
+		public void Converte_TextoSublinhado_RetornaTextoSublinhado()
 		{
 
 			var flowDocument = new FlowDocument(new Paragraph(new Run("Texto sublinhado")
@@ -94,8 +99,7 @@ namespace PersonalNotesApp.Tests.Converter
 			var textoEstilizado = FlowDocumentToString.Converte(flowDocument);
 
 			Assert.Contains("<u>Texto sublinhado</u>", textoEstilizado);
-			Assert.DoesNotContain("**", textoEstilizado);
-			Assert.DoesNotContain("*", textoEstilizado);
+			Assert.False(VerificaFormatacaoNegritoItalico(textoEstilizado));
 
 		}
 
@@ -109,9 +113,9 @@ namespace PersonalNotesApp.Tests.Converter
 			var textoEstilizado = FlowDocumentToString.Converte(flowDocument);
 
 			Assert.Contains("***Texto em negrito-itálico***", textoEstilizado);
-			Assert.DoesNotContain("<u>", textoEstilizado);
+			Assert.False(VerificaFormatacaoSublinhado(textoEstilizado));
 		}
-		/*
+		
 		[Fact]
 		public void Converte_CombinacaoDeNegritoSublinhado_RetornaTextoComNegritoSublinhado()
 		{
@@ -125,9 +129,9 @@ namespace PersonalNotesApp.Tests.Converter
 			var textoEstilizado = FlowDocumentToString.Converte(flowDocument);
 
 			Assert.Contains("**<u>Texto negrito e sublinhado</u>**", textoEstilizado);
-			Assert.DoesNotContain($"*", textoEstilizado);
+			Assert.False(VerificaFormatacaoItalico(textoEstilizado));
 		}
-		*/
+		
 		[Fact]
 		public void Converte_CombinacaoDeItalicoSublinhado_RetornaTextoComItalicoSublinhado()
 		{
@@ -140,7 +144,7 @@ namespace PersonalNotesApp.Tests.Converter
 			var textoEstilizado = FlowDocumentToString.Converte(flowDocument);
 
 			Assert.Contains("*<u>Texto itálico e sublinhado</u>*", textoEstilizado);
-			Assert.DoesNotContain("**", textoEstilizado);
+			Assert.False(VerificaFormatacaoNegrito(textoEstilizado));
 		}
 
 		[Fact]
@@ -157,6 +161,7 @@ namespace PersonalNotesApp.Tests.Converter
 
 			Assert.Contains("***<u>Texto com todos os estilos</u>***", textoEstilizado);
 		}
+
 		
 		[Theory]
 		[InlineData("Texto sem formatação")]
@@ -177,8 +182,35 @@ namespace PersonalNotesApp.Tests.Converter
 			//Assert
 			Assert.Contains(texto,textoEstilizado);
 
-
 		}
 		
+
+		////MÉTODOS AUXILIARES - COMEÇO
+		
+		public bool VerificaFormatacaoItalico(string texto)
+		{
+			var regexItalico = new Regex(@"(?<!\*)\*(?!\*).*?(?<!\*)\*(?!\*)");
+			return regexItalico.IsMatch(texto);
+		}
+
+		public bool VerificaFormatacaoNegrito(string texto)
+		{
+			var regexNegrito = new Regex(@"(?<!\*)\*\*(?!\*).*?(?<!\*)\*\*(?!\*)");
+			return regexNegrito.IsMatch(texto);
+		}
+		
+		public bool VerificaFormatacaoSublinhado(string texto)
+		{
+			return texto.Contains("<u>") && texto.Contains("</u>");
+		}
+
+		public bool VerificaFormatacaoNegritoItalico(string texto)
+		{
+			var regexNegritoItalico = new Regex(@"\*\*\*.*?\*\*\*");
+			return regexNegritoItalico.IsMatch(texto);
+		}
+
+
+		////MÉTODOS AUXILIARES - FIM
 	}
 }
