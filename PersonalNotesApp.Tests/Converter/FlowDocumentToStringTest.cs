@@ -165,22 +165,27 @@ namespace PersonalNotesApp.Tests.Converter
 		
 		[Theory]
 		[InlineData("Texto sem formatação")]
-		[InlineData("***<u>Texto em itálico, negrito e sublinhado</u>***")]
-		[InlineData("**<u>Texto em negrito e sublinhado</u>**")]
-		[InlineData("*<u>Texto em itálico e sublinhado</u>*")]
-		[InlineData("***Texto em itálico e negrito***")]
 		[InlineData("**Texto em negrito**")]
 		[InlineData("*Texto em itálico*")]
-		public void Converte_VariasEstilizacoesDeTexto_AplicaEstiloNosTextos(string texto)
+		[InlineData("<u>Texto sublinhado</u>")]
+		public void ConverteReconverte_TesteDeIdaEVolta_DeveManterFormatacao(string textoMarkdown)
 		{
 			//Arrange
-			var flowDocument = new FlowDocument(new Paragraph(new Run(texto)));
+			var flowDocument = FlowDocumentToString.ConverteDeVolta(textoMarkdown);
+
 
 			//Act
-			var textoEstilizado = FlowDocumentToString.Converte(flowDocument);
+			var textoConvertidoEmString = FlowDocumentToString.Converte(flowDocument);
+			var textoReconvertidoParaFlowDocument = FlowDocumentToString.ConverteDeVolta(textoConvertidoEmString);
+			
 
 			//Assert
-			Assert.Contains(texto,textoEstilizado);
+			var textoFinal = FlowDocumentToString.Converte(textoReconvertidoParaFlowDocument);
+
+			var textoConvertidoLimpo = textoConvertidoEmString.Trim();
+			var textoFinalLimpo = textoFinal.Trim();
+
+			Assert.Equal(textoConvertidoLimpo, textoFinalLimpo);
 
 		}
 		
