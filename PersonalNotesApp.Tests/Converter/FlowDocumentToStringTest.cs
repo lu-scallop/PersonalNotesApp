@@ -246,7 +246,7 @@ namespace PersonalNotesApp.Tests.Converter
 		}
 
 		[Fact]
-		public void ConverteDeVolta_TextoNegritoEItalico()
+		public void ConverteDeVolta_TextoNegritoItalico()
 		{
 			string texto = "***Texto negrito & itálico***";
 
@@ -256,13 +256,58 @@ namespace PersonalNotesApp.Tests.Converter
 
 			Assert.NotNull(run);
 			Assert.Equal("Texto negrito & itálico", run.Text);
-			Assert.True(VerificaFormatacaoRunNegrito(run));
-			Assert.True(VerificaFormatacaoItalico(run.Text));
+			Assert.Equal(FontWeights.Bold, run.FontWeight);
+			Assert.Equal(FontStyles.Italic, run.FontStyle);
 			Assert.Empty(run.TextDecorations);
 
 			
 		}
 
+		[Fact]
+		public void ConverteDeVolta_TextoNegritoSublinhado()
+		{
+			string texto = "**<u>Texto negrito & sublinhado</u>**";
+
+			var flowDocument = FlowDocumentToString.ConverteDeVolta(texto);
+			var paragrafo = flowDocument.Blocks.FirstOrDefault() as Paragraph;
+			var run = paragrafo.Inlines.FirstOrDefault() as Run;
+
+			Assert.NotNull(run);
+			Assert.Equal("Texto negrito & sublinhado", run.Text);
+			Assert.Equal(FontWeights.Bold, run.FontWeight);
+			Assert.Equal(TextDecorations.Underline, run.TextDecorations);
+		}
+
+		[Fact]
+		public void ConverteDeVolta_TextoItalicoSublinhado()
+		{
+			string texto = "*<u>Texto itálico & sublinhado</u>*";
+
+			var flowDocument = FlowDocumentToString.ConverteDeVolta(texto);
+			var paragrafo = flowDocument.Blocks.FirstOrDefault() as Paragraph;
+			var run = paragrafo.Inlines.FirstOrDefault() as Run;
+
+			Assert.NotNull(run);
+			Assert.Equal("Texto itálico & sublinhado", run.Text);
+			Assert.Equal(FontStyles.Italic, run.FontStyle);
+			Assert.Equal(TextDecorations.Underline, run.TextDecorations);
+		}
+
+		[Fact]
+		public void ConverteDeVolta_CombinacaoTodosOsEstilos_RetornaTodosOsEstilos()
+		{
+			string texto = "***<u>Texto com todos os estilos</u>***";
+
+			var flowDocument = FlowDocumentToString.ConverteDeVolta(texto);
+			var paragrafo = flowDocument.Blocks.FirstOrDefault() as Paragraph;
+			var run = paragrafo.Inlines.FirstOrDefault() as Run;
+
+			Assert.NotNull(run);
+			Assert.Equal("Texto com todos os estilos", run.Text);
+			Assert.Equal(FontWeights.Bold, run.FontWeight);
+			Assert.Equal(FontStyles.Italic, run.FontStyle);
+			Assert.Equal(TextDecorations.Underline, run.TextDecorations);
+		}
 
 
 		////MÉTODOS AUXILIARES - COMEÇO
@@ -278,21 +323,6 @@ namespace PersonalNotesApp.Tests.Converter
 			var regexNegrito = new Regex(@"(?<!\*)\*\*(?!\*).*?(?<!\*)\*\*(?!\*)");
 			return regexNegrito.IsMatch(texto);
 		}
-
-		public bool VerificaFormatacaoRunNegrito(Run run)
-		{
-			FlowDocument flowDocument = new FlowDocument(new Paragraph(new Run(run.Text)));
-			string textoConvertido = FlowDocumentToString.Converte(flowDocument);
-
-            if (VerificaFormatacaoNegrito(textoConvertido) is true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
 		public bool VerificaFormatacaoSublinhado(string texto)
 		{
