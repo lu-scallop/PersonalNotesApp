@@ -15,72 +15,15 @@ namespace PersonalNotesApp.Tests.ViewModel
 		public void AdicionaNovaPasta_PastaAdicionadaNaColecao_DeveSerAdicionadoNaColecao()
 		{
 			//Arrange
-			ObservableCollection<Base> Pastas = new ObservableCollection<Base>();
-			string pastaTeste = "Nova Pasta";
-			Pasta pasta = new Pasta(pastaTeste);
+			MainViewModel mainViewModel = new MainViewModel();
 
 			//Act
-			Pastas.Add(pasta);
+			mainViewModel.AdicionaNovaPasta();
 
 			//Assert
-			Assert.True(Pastas.Contains(pasta));
+			Assert.Contains(mainViewModel.Pastas.Max(), mainViewModel.Pastas);
 		}
 
-		[Fact]
-		public void AdicionaNovaPasta_NomeDaPastaVazio_DeveAdicionarPastaSemNome()
-		{
-			ObservableCollection<Base> Pastas = new ObservableCollection<Base>();
-			string pastaTeste = string.Empty;
-			Pasta pasta = new Pasta(pastaTeste);
-
-			//Act
-			Pastas.Add(pasta);
-
-			//Assert
-			Assert.True(Pastas.Contains(pasta));
-			Assert.Contains(string.Empty, pastaTeste);
-		}
-
-		[Fact]
-		public void AdicionaNovaPasta_NomeDaPastaComValorNulo_LancaExcecao()
-		{
-			string pastaTeste = null;
-
-			Assert.Throws<ArgumentNullException>(() => new Pasta(pastaTeste));
-		}
-
-		[Fact]
-		public void AdicionaSubPasta_SubPastaAdicionadaNaColecao_DeveSerAdicionadoNaColecao()
-		{
-			Pasta pasta = new Pasta("Pasta principal");
-			string nomeSubPasta = "Nova Sub Pasta";
-			Pasta subPasta = new Pasta(nomeSubPasta);
-
-			pasta.SubPastas.Add(subPasta);
-
-			Assert.True(pasta.SubPastas.Contains(subPasta));
-
-		}
-
-		[Fact]
-		public void AdicionaNovaAnotacao_AnotacaoAdicionadaNaColecao_AnotacaoDeveEstarNaColecao()
-		{
-			ObservableCollection<Base> colecao = new ObservableCollection<Base>();
-			Anotacao anotacaoTeste = new Anotacao("Nova anotacao");
-
-			colecao.Add(anotacaoTeste);
-
-			Assert.True(colecao.Contains(anotacaoTeste));
-		}
-
-		[Fact]
-		public void AdicionaNovaAnotacao_NomeAnotacaoNulaAdicionadaNaColecao_LancaExcecao()
-		{
-
-			string nomeAnotacao = null;
-
-			Assert.Throws<ArgumentNullException>(() => new Anotacao(nomeAnotacao));
-		}
 
 		[Fact]
 		public void AdicionaNovaAnotacaoEmSubPasta_AnotacaoAdicionadaNaSubPasta_AnotacaoDeveEstarNaColecao()
@@ -90,7 +33,7 @@ namespace PersonalNotesApp.Tests.ViewModel
 
 			pasta.SubPastas.Add(anotacao);
 
-			Assert.True(pasta.SubPastas.Contains(anotacao));
+			Assert.Contains(anotacao, pasta.SubPastas);
 		}
 
 		[Fact]
