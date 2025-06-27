@@ -48,8 +48,6 @@ namespace PersonalNotesApp.Tests.ViewModel
 			Assert.DoesNotContain(pasta, mainViewModel.Pastas);
 		}
 
-		//CORRIGIR TESTE QUE ESTÁ DANDO ERRO
-		/*
 		[Fact]
 		public void ExcluirItem_ExcluiSubPasta_RemoveSubPasta()
 		{
@@ -57,6 +55,7 @@ namespace PersonalNotesApp.Tests.ViewModel
 			Pasta pasta = new Pasta("Pasta 1");
 			Pasta subPasta = new Pasta("Pasta 1.1");
 
+			mainViewModel.Pastas.Add(pasta);
 			pasta.SubPastas.Add(subPasta);
 
 			mainViewModel.ExcluirItem(subPasta);
@@ -64,7 +63,7 @@ namespace PersonalNotesApp.Tests.ViewModel
 			Assert.DoesNotContain(subPasta, pasta.SubPastas);
 			Assert.Empty(pasta.SubPastas);
 		}
-		*/
+		
 		[Fact]
 		public void ExcluirItem_ExcluirSubPastaEmHierarquiaProfunda_RemoveSubPasta()
 		{
