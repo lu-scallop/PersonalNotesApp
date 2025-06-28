@@ -25,14 +25,40 @@ namespace PersonalNotesApp.Tests.ViewModel
 		}
 
 		[Fact]
+		public void AdicionaSubPasta_SubPastaAdicionadaNaColecao_DeveSerAdicionadoNaColecao()
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+			Pasta pasta = new Pasta("Pasta");
+
+			mainViewModel.AdicionaSubPasta(pasta);
+
+			Assert.NotEmpty(pasta.SubPastas);
+		}
+
+		[Fact]
+		public void AdicionaNovaAnotacao_AnotacaoAdicionadaNaColecao_DeveSerAdicionadoNaColecao()
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+
+			mainViewModel.AdicionaNovaAnotacao();
+
+			Assert.NotEmpty(mainViewModel.Pastas);
+		}
+
+		[Fact]
 		public void AdicionaNovaAnotacaoEmSubPasta_AnotacaoAdicionadaNaSubPasta_AnotacaoDeveEstarNaColecao()
 		{
-			Pasta pasta = new Pasta("Pasta principal");
+			MainViewModel mainViewModel = new MainViewModel();
+			Pasta pasta = new Pasta("Pasta");
+			Pasta subPasta = new Pasta("Sub Pasta");
 			Anotacao anotacao = new Anotacao("Nova Anotação");
+			mainViewModel.Pastas.Add(pasta);
 
-			pasta.SubPastas.Add(anotacao);
+			mainViewModel.AdicionaNovaAnotacaoEmSubPasta(subPasta);
 
-			Assert.Contains(anotacao, pasta.SubPastas);
+			Assert.Contains(anotacao, subPasta.SubPastas);
+
+
 		}
 
 		[Fact]
@@ -89,6 +115,20 @@ namespace PersonalNotesApp.Tests.ViewModel
 			Assert.Contains(nivel2, nivel1.SubPastas);
 			Assert.Contains(nivel3, nivel2.SubPastas);
 
+		}
+
+		//TO DO: FINALIZAR TESTE
+		[Fact]
+		public void Salvar_CriaDiretorio_DeveSalvarPastaComoDiretorio()
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+			string caminho = mainViewModel.CaminhoRaiz;
+			Pasta pasta = new Pasta("Pasta");
+			mainViewModel.Pastas.Add(pasta);
+
+			mainViewModel.Salvar(caminho, mainViewModel.Pastas);
+
+			//Assert.True()
 		}
 	}
 }
