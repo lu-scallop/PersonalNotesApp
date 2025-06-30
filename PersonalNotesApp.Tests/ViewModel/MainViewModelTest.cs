@@ -64,8 +64,9 @@ namespace PersonalNotesApp.Tests.ViewModel
 		[Fact]
 		public void ExcluirItem_ExcluiPastaNaColecao_ExcluiPasta()
 		{
-			LimparDiretorio(RetornaCaminhoDosDiretoriosDeTestes());
+			
 			MainViewModel mainViewModel = new MainViewModel();
+			mainViewModel.Pastas.Clear();
 			Pasta pasta = new Pasta("Nova Pasta");
 
 			mainViewModel.Pastas.Add(pasta);
@@ -74,6 +75,8 @@ namespace PersonalNotesApp.Tests.ViewModel
 
 			Assert.DoesNotContain(pasta, mainViewModel.Pastas);
 			Assert.Empty(mainViewModel.Pastas);
+			LimparDiretorio(RetornaCaminhoDosDiretoriosDeTestes());
+			mainViewModel.Pastas.Clear();
 		}
 
 		[Fact]
@@ -133,6 +136,32 @@ namespace PersonalNotesApp.Tests.ViewModel
 			Assert.True(Directory.Exists(caminho));
 
 			LimparDiretorio(caminho);
+			mainViewModel.Pastas.Clear();
+		}
+
+		//TO DO: Corrigir teste:
+		[Fact]
+		public void MapearPastaEstruturaParaTreeView_RetornaAsPastasParaTreeView()
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+			mainViewModel.Pastas.Clear();
+			string caminho = RetornaCaminhoDosDiretoriosDeTestes();
+			Directory.CreateDirectory(caminho+@"\PastaTeste");
+			Directory.CreateDirectory(caminho+@"\PastaTeste2");
+			File.Create(caminho+@"\Anotacao.md");
+			Pasta pasta = new Pasta("PastaTeste");
+			Pasta pasta2 = new Pasta("PastaTeste2");
+			Anotacao anotacao = new Anotacao("Anotacao");
+
+			mainViewModel.MapearPastaEstruturaParaTreeView(caminho, mainViewModel.Pastas);
+
+			Assert.Contains(pasta.Nome.ToString(), mainViewModel.Pastas.ToString());
+			Assert.Contains(pasta2.Nome.ToString(), mainViewModel.Pastas.ToString());
+			Assert.Contains(anotacao.Nome.ToString(), mainViewModel.Pastas.ToString());
+
+			LimparDiretorio(caminho);
+			mainViewModel.Pastas.Clear();
+
 		}
 
 		////MÉTODOS AUXILIARES - INÍCIO
