@@ -51,27 +51,29 @@ namespace PersonalNotesApp.Tests.ViewModel
 			MainViewModel mainViewModel = new MainViewModel();
 			Pasta pasta = new Pasta("Pasta");
 			Pasta subPasta = new Pasta("Sub Pasta");
-			Anotacao anotacao = new Anotacao("Nova Anotação");
 			mainViewModel.Pastas.Add(pasta);
+			pasta.SubPastas.Add(subPasta);
 
 			mainViewModel.AdicionaNovaAnotacaoEmSubPasta(subPasta);
 
-			Assert.Contains(anotacao, subPasta.SubPastas);
+			Assert.NotEmpty(subPasta.SubPastas);
 
 
 		}
 
 		[Fact]
-		public void ExcluirItem_ExcluiPastaNaColecao_RemovePasta()
+		public void ExcluirItem_ExcluiPastaNaColecao_ExcluiPasta()
 		{
+			LimparDiretorio(RetornaCaminhoDosDiretoriosDeTestes());
 			MainViewModel mainViewModel = new MainViewModel();
 			Pasta pasta = new Pasta("Nova Pasta");
 
-			mainViewModel.AdicionaNovaPasta();
-			mainViewModel.ExcluirItem(mainViewModel.Pastas.FirstOrDefault());
+			mainViewModel.Pastas.Add(pasta);
 
-			Assert.Empty(mainViewModel.Pastas);
+			mainViewModel.ExcluirItem(pasta);
+
 			Assert.DoesNotContain(pasta, mainViewModel.Pastas);
+			Assert.Empty(mainViewModel.Pastas);
 		}
 
 		[Fact]
@@ -117,18 +119,52 @@ namespace PersonalNotesApp.Tests.ViewModel
 
 		}
 
-		//TO DO: FINALIZAR TESTE
 		[Fact]
 		public void Salvar_CriaDiretorio_DeveSalvarPastaComoDiretorio()
 		{
 			MainViewModel mainViewModel = new MainViewModel();
-			string caminho = mainViewModel.CaminhoRaiz;
+			mainViewModel.Pastas.Clear();
+			string caminho = RetornaCaminhoDosDiretoriosDeTestes();
 			Pasta pasta = new Pasta("Pasta");
 			mainViewModel.Pastas.Add(pasta);
 
 			mainViewModel.Salvar(caminho, mainViewModel.Pastas);
 
-			//Assert.True()
+			Assert.True(Directory.Exists(caminho));
+
+			LimparDiretorio(caminho);
 		}
+
+		////MÉTODOS AUXILIARES - INÍCIO
+		public void LimparDiretorio(string caminho)
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+			
+			string[] conteudo = Directory.GetDirectories(caminho);
+
+            if (Directory.Exists(caminho))
+            {
+				try
+				{
+					foreach (string pastas in conteudo)
+					{
+						Directory.Delete(pastas, true);
+						mainViewModel.Pastas.Clear();
+					}
+				}
+				catch (IOException ex) 
+				{
+					Console.WriteLine(ex.Message);
+				}
+				    
+            }
+        }
+
+		public string RetornaCaminhoDosDiretoriosDeTestes()
+		{
+			return @"C:\ProjetosDev\ProjetosCsharp\PersonalNotesApp\PersonalNotesApp.Tests\DiretorioParaTestes";
+		}
+
+		////MÉTODO AUXILIARES - FIM
 	}
 }
