@@ -25,6 +25,24 @@ namespace PersonalNotesApp.Tests.ViewModel
 		}
 
 		[Fact]
+		public void AdicionaNovaPasta_ComPastasExistentes_DeveGerarNomeUnico()
+		{
+			//Arrange
+			MainViewModel mainViewModel = new MainViewModel();
+
+			//Act
+			mainViewModel.AdicionaNovaPasta();
+			mainViewModel.AdicionaNovaPasta();
+			mainViewModel.AdicionaNovaPasta();
+
+			//Assert
+			var nomes = mainViewModel.Pastas.Cast<Pasta>().Select(p => p.Nome).ToList();
+			Assert.Contains("Nova Pasta", nomes);
+			Assert.Contains("Nova Pasta (1)", nomes);
+			Assert.Contains("Nova Pasta (2)", nomes);
+		}
+
+		[Fact]
 		public void AdicionaSubPasta_SubPastaAdicionadaNaColecao_DeveSerAdicionadoNaColecao()
 		{
 			MainViewModel mainViewModel = new MainViewModel();
@@ -33,7 +51,17 @@ namespace PersonalNotesApp.Tests.ViewModel
 			mainViewModel.AdicionaSubPasta(pasta);
 
 			Assert.NotEmpty(pasta.SubPastas);
+			Assert.Single(pasta.SubPastas);
 		}
+
+		[Fact]
+		public void AdicionaSubPasta_ComPastaNula_LancaExcecao()
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+
+			Assert.Throws<ArgumentNullException>(() => mainViewModel.AdicionaSubPasta(null));
+		}
+
 
 		[Fact]
 		public void AdicionaNovaAnotacao_AnotacaoAdicionadaNaColecao_DeveSerAdicionadoNaColecao()
@@ -43,6 +71,9 @@ namespace PersonalNotesApp.Tests.ViewModel
 			mainViewModel.AdicionaNovaAnotacao();
 
 			Assert.NotEmpty(mainViewModel.Pastas);
+			var novaAnotacao = mainViewModel.Pastas.Last() as Anotacao;
+			Assert.NotNull(novaAnotacao);
+			Assert.StartsWith("Nova Anotação", novaAnotacao.Nome);
 		}
 
 		[Fact]
@@ -80,7 +111,7 @@ namespace PersonalNotesApp.Tests.ViewModel
 		}
 
 		[Fact]
-		public void ExcluirItem_ExcluiSubPasta_RemoveSubPasta()
+		public void ExcluirItem_ExcluiSubPasta_ExcluiSubPasta()
 		{
 			MainViewModel mainViewModel = new MainViewModel();
 			Pasta pasta = new Pasta("Pasta 1");
@@ -123,6 +154,31 @@ namespace PersonalNotesApp.Tests.ViewModel
 		}
 
 		[Fact]
+		public void ExcluirItem_ItemNulo_NaoLancaExcecao()
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+
+			var exception = Record.Exception(() => mainViewModel.ExcluirItem(null));
+			Assert.Null(exception);
+		}
+
+		[Fact]
+		public void ExcluirItem_ItemNaoExistente_NaoAlteraColecao()
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+			var pastaExistente = new Pasta("Pasta Existente");
+			var pastaNaoExistente = new Pasta("Pasta Não Existente");
+
+			mainViewModel.Pastas.Add(pastaExistente);
+			int countAntes = mainViewModel.Pastas.Count;
+
+			mainViewModel.ExcluirItem(pastaNaoExistente);
+
+			Assert.Equal(countAntes, mainViewModel.Pastas.Count);
+			Assert.True(mainViewModel.Pastas.Contains(pastaExistente));
+		}
+
+		[Fact]
 		public void Salvar_CriaDiretorio_DeveSalvarPastaComoDiretorio()
 		{
 			MainViewModel mainViewModel = new MainViewModel();
@@ -139,7 +195,6 @@ namespace PersonalNotesApp.Tests.ViewModel
 			mainViewModel.Pastas.Clear();
 		}
 
-		//TO DO: Corrigir teste:
 		[Fact]
 		public void MapearPastaEstruturaParaTreeView_RetornaAsPastasParaTreeView()
 		{
@@ -157,13 +212,51 @@ namespace PersonalNotesApp.Tests.ViewModel
 			mainViewModel.MapearPastaEstruturaParaTreeView(caminho, mainViewModel.Pastas);
 
 			Assert.True(Directory.Exists(caminho));
-			/*
-			Assert.Contains(pasta, mainViewModel.Pastas);
-			Assert.Contains(pasta2, mainViewModel.Pastas);
-			*/
 			LimparDiretorio(caminho);
 			mainViewModel.Pastas.Clear();
 
+		}
+
+		[Fact]
+		public void ItemSelecionado_AlterarValor_DeveNotificarPropertyChanged()
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+			var pasta = new Pasta("Teste");
+			bool propertyChangedFired = false;
+
+			mainViewModel.PropertyChanged += (sender, e) =>
+			{
+				if(e.PropertyName == nameof(MainViewModel.ItemSelecionado))
+					propertyChangedFired = true;
+			};
+
+			mainViewModel.ItemSelecionado = pasta;
+
+			Assert.True(propertyChangedFired);
+			Assert.Equal(pasta, mainViewModel.ItemSelecionado);
+		}
+
+		[Fact]
+		public void DocumentoSelecionado_ComAnotacaoSelecionado_DeveRetornarConteudo()
+		{
+			MainViewModel mainViewModel = new MainViewModel();
+			var anotacao = new Anotacao("Teste");
+
+			mainViewModel.ItemSelecionado = anotacao;
+
+			Assert.NotNull(mainViewModel.DocumentoSelecionado);
+			Assert.Equal(anotacao.Conteudo, mainViewModel.DocumentoSelecionado);
+		}
+
+		[Fact]
+		public void DocumentoSelecionado_ComPastaSelecionada_DeveRetornarNulo()
+		{
+			MainViewModel viewModel = new MainViewModel();
+			var pasta = new Pasta("Teste");
+
+			viewModel.ItemSelecionado = pasta;
+
+			Assert.Null(viewModel.DocumentoSelecionado);
 		}
 
 		////MÉTODOS AUXILIARES - INÍCIO

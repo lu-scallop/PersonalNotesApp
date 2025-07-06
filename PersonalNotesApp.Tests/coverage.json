@@ -1,0 +1,2334 @@
+{
+  "PersonalNotesApp.dll": {
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\obj\\Debug\\net8.0-windows\\GeneratedInternalTypeHelper.g.cs": {
+      "XamlGeneratedNamespace.GeneratedInternalTypeHelper": {
+        "System.Object XamlGeneratedNamespace.GeneratedInternalTypeHelper::CreateInstance(System.Type,System.Globalization.CultureInfo)": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": []
+        },
+        "System.Object XamlGeneratedNamespace.GeneratedInternalTypeHelper::GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)": {
+          "Lines": {
+            "33": 0,
+            "34": 0,
+            "35": 0
+          },
+          "Branches": []
+        },
+        "System.Void XamlGeneratedNamespace.GeneratedInternalTypeHelper::SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)": {
+          "Lines": {
+            "40": 0,
+            "41": 0,
+            "42": 0
+          },
+          "Branches": []
+        },
+        "System.Delegate XamlGeneratedNamespace.GeneratedInternalTypeHelper::CreateDelegate(System.Type,System.Object,System.String)": {
+          "Lines": {
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0
+          },
+          "Branches": []
+        },
+        "System.Void XamlGeneratedNamespace.GeneratedInternalTypeHelper::AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "59": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\obj\\Debug\\net8.0-windows\\App.g.cs": {
+      "PersonalNotesApp.App": {
+        "System.Void PersonalNotesApp.App::InitializeComponent()": {
+          "Lines": {
+            "48": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\App.xaml": {
+      "PersonalNotesApp.App": {
+        "System.Void PersonalNotesApp.App::InitializeComponent()": {
+          "Lines": {
+            "5": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\App.xaml.cs": {
+      "PersonalNotesApp.App": {
+        "System.Void PersonalNotesApp.App::.ctor()": {
+          "Lines": {
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\MainWindow.xaml.cs": {
+      "PersonalNotesApp.MainWindow": {
+        "PersonalNotesApp.ViewModel.MainViewModel PersonalNotesApp.MainWindow::get_ViewModel()": {
+          "Lines": {
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::AdicionaNovaPasta_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "34": 0,
+            "35": 0,
+            "36": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::AdicionaSubPasta_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "38": 0,
+            "39": 0,
+            "40": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::AdicionaNovaAnotacao_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "42": 0,
+            "43": 0,
+            "44": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::AdicionaNovaAnotacaoEmSubPasta_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "46": 0,
+            "47": 0,
+            "48": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::Salvar_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "50": 0,
+            "51": 0,
+            "52": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::Excluir_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "54": 0,
+            "55": 0,
+            "56": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::Negrito_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "58": 0,
+            "59": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0
+          },
+          "Branches": [
+            {
+              "Line": 61,
+              "Offset": 19,
+              "EndOffset": 21,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 50,
+              "EndOffset": 52,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 50,
+              "EndOffset": 78,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 19,
+              "EndOffset": 103,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.MainWindow::Italico_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "74": 0,
+            "75": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0
+          },
+          "Branches": [
+            {
+              "Line": 77,
+              "Offset": 19,
+              "EndOffset": 21,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 79,
+              "Offset": 50,
+              "EndOffset": 52,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 79,
+              "Offset": 50,
+              "EndOffset": 78,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 77,
+              "Offset": 19,
+              "EndOffset": 103,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.MainWindow::Sublinhado_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "91": 0,
+            "92": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0
+          },
+          "Branches": [
+            {
+              "Line": 94,
+              "Offset": 19,
+              "EndOffset": 21,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 96,
+              "Offset": 45,
+              "EndOffset": 47,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 96,
+              "Offset": 45,
+              "EndOffset": 64,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 94,
+              "Offset": 19,
+              "EndOffset": 84,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.MainWindow::AlinharEsquerda_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::AlinharDireita_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "113": 0,
+            "114": 0,
+            "115": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::AlinharCentro_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "117": 0,
+            "118": 0,
+            "119": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::Tv_Main_SelectedItemChanged(System.Object,System.Windows.RoutedPropertyChangedEventArgs`1<System.Object>)": {
+          "Lines": {
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0,
+            "125": 0,
+            "126": 0,
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0
+          },
+          "Branches": [
+            {
+              "Line": 122,
+              "Offset": 19,
+              "EndOffset": 21,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 122,
+              "Offset": 19,
+              "EndOffset": 107,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 129,
+              "Offset": 125,
+              "EndOffset": 127,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 129,
+              "Offset": 125,
+              "EndOffset": 198,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 143,
+              "Offset": 290,
+              "EndOffset": 292,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 143,
+              "Offset": 290,
+              "EndOffset": 307,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.MainWindow::RtbConteudo_TextChanged(System.Object,System.Windows.Controls.TextChangedEventArgs)": {
+          "Lines": {
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0
+          },
+          "Branches": [
+            {
+              "Line": 151,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 151,
+              "Offset": 12,
+              "EndOffset": 48,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 151,
+              "Offset": 51,
+              "EndOffset": 53,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 151,
+              "Offset": 51,
+              "EndOffset": 83,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.MainWindow::Tv_Main_MouseDoubleClick(System.Object,System.Windows.Input.MouseButtonEventArgs)": {
+          "Lines": {
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "161": 0,
+            "162": 0,
+            "163": 0
+          },
+          "Branches": [
+            {
+              "Line": 159,
+              "Offset": 24,
+              "EndOffset": 26,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 159,
+              "Offset": 24,
+              "EndOffset": 36,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.MainWindow::TextBox_LostFocus(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0
+          },
+          "Branches": [
+            {
+              "Line": 166,
+              "Offset": 24,
+              "EndOffset": 26,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 166,
+              "Offset": 24,
+              "EndOffset": 34,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.MainWindow::Sair_Click(System.Object,System.Windows.RoutedEventArgs)": {
+          "Lines": {
+            "170": 0,
+            "171": 0,
+            "172": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.MainWindow::.ctor()": {
+          "Lines": {
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\MainWindow.xaml": {
+      "PersonalNotesApp.MainWindow": {
+        "System.Void PersonalNotesApp.MainWindow::InitializeComponent()": {
+          "Lines": {
+            "1": 0
+          },
+          "Branches": [
+            {
+              "Line": 1,
+              "Offset": 9,
+              "EndOffset": 11,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 1,
+              "Offset": 9,
+              "EndOffset": 14,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.MainWindow::System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)": {
+          "Lines": {
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "43": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "57": 0
+          },
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 86,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 115,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 144,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 173,
+              "Path": 4,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 202,
+              "Path": 5,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 231,
+              "Path": 6,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 260,
+              "Path": 7,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 289,
+              "Path": 8,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 318,
+              "Path": 9,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 344,
+              "Path": 10,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 370,
+              "Path": 11,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 432,
+              "Path": 17,
+              "Ordinal": 17,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 446,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 446,
+              "Path": 12,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 446,
+              "Path": 13,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 446,
+              "Path": 14,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 446,
+              "Path": 15,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 8,
+              "EndOffset": 446,
+              "Path": 16,
+              "Ordinal": 16,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.MainWindow::System.Windows.Markup.IStyleConnector.Connect(System.Int32,System.Object)": {
+          "Lines": {
+            "81": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "98": 0
+          },
+          "Branches": [
+            {
+              "Line": 81,
+              "Offset": 9,
+              "EndOffset": 39,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 9,
+              "EndOffset": 65,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 9,
+              "EndOffset": 91,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 9,
+              "EndOffset": 117,
+              "Path": 4,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 9,
+              "EndOffset": 143,
+              "Path": 5,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 9,
+              "EndOffset": 169,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\ViewModel\\MainViewModel.cs": {
+      "PersonalNotesApp.ViewModel.MainViewModel": {
+        "System.String PersonalNotesApp.ViewModel.MainViewModel::get_CaminhoRaiz()": {
+          "Lines": {
+            "20": 22,
+            "21": 22,
+            "22": 22,
+            "23": 22,
+            "24": 22
+          },
+          "Branches": []
+        },
+        "System.Collections.ObjectModel.ObservableCollection`1<PersonalNotesApp.Model.Base> PersonalNotesApp.ViewModel.MainViewModel::get_Pastas()": {
+          "Lines": {
+            "27": 97
+          },
+          "Branches": []
+        },
+        "System.Windows.Documents.FlowDocument PersonalNotesApp.ViewModel.MainViewModel::get_DocumentoSelecionado()": {
+          "Lines": {
+            "30": 3
+          },
+          "Branches": [
+            {
+              "Line": 30,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 30,
+              "Offset": 12,
+              "EndOffset": 18,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            }
+          ]
+        },
+        "PersonalNotesApp.Model.Anotacao PersonalNotesApp.ViewModel.MainViewModel::get_AnotacaoSelecionada()": {
+          "Lines": {
+            "31": 0
+          },
+          "Branches": []
+        },
+        "PersonalNotesApp.Model.Base PersonalNotesApp.ViewModel.MainViewModel::get_ItemSelecionado()": {
+          "Lines": {
+            "34": 4
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::set_ItemSelecionado(PersonalNotesApp.Model.Base)": {
+          "Lines": {
+            "36": 3,
+            "37": 3,
+            "38": 3,
+            "39": 3,
+            "40": 3
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::OnPropertyChanged(System.String)": {
+          "Lines": {
+            "51": 6,
+            "52": 6,
+            "53": 6
+          },
+          "Branches": [
+            {
+              "Line": 52,
+              "Offset": 8,
+              "EndOffset": 10,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 4
+            },
+            {
+              "Line": 52,
+              "Offset": 8,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::AdicionaNovaPasta()": {
+          "Lines": {
+            "56": 4,
+            "57": 4,
+            "58": 4,
+            "59": 4,
+            "60": 4
+          },
+          "Branches": [
+            {
+              "Line": 57,
+              "Offset": 19,
+              "EndOffset": 21,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 57,
+              "Offset": 19,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            },
+            {
+              "Line": 58,
+              "Offset": 36,
+              "EndOffset": 38,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 58,
+              "Offset": 36,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 4
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::AdicionaSubPasta(PersonalNotesApp.Model.Pasta)": {
+          "Lines": {
+            "63": 2,
+            "64": 2,
+            "65": 1,
+            "66": 1,
+            "67": 1
+          },
+          "Branches": []
+        },
+        "System.String PersonalNotesApp.ViewModel.MainViewModel::ObterNomeUnico(System.String,System.Collections.ObjectModel.ObservableCollection`1<PersonalNotesApp.Model.Base>)": {
+          "Lines": {
+            "70": 7,
+            "71": 7,
+            "72": 7,
+            "74": 57,
+            "75": 3,
+            "76": 3,
+            "77": 3,
+            "79": 7,
+            "80": 7
+          },
+          "Branches": [
+            {
+              "Line": 74,
+              "Offset": 131,
+              "EndOffset": 18,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 3
+            },
+            {
+              "Line": 74,
+              "Offset": 98,
+              "EndOffset": 100,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 7
+            },
+            {
+              "Line": 74,
+              "Offset": 98,
+              "EndOffset": 124,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 10
+            },
+            {
+              "Line": 74,
+              "Offset": 131,
+              "EndOffset": 133,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 7
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::AdicionaNovaAnotacao()": {
+          "Lines": {
+            "83": 1,
+            "84": 1,
+            "85": 1,
+            "86": 1,
+            "87": 1
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::AdicionaNovaAnotacaoEmSubPasta(PersonalNotesApp.Model.Pasta)": {
+          "Lines": {
+            "89": 1,
+            "90": 1,
+            "91": 1,
+            "92": 1,
+            "93": 1
+          },
+          "Branches": [
+            {
+              "Line": 90,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 90,
+              "Offset": 7,
+              "EndOffset": 15,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::ExcluirItem(PersonalNotesApp.Model.Base,System.Collections.ObjectModel.ObservableCollection`1<PersonalNotesApp.Model.Base>)": {
+          "Lines": {
+            "96": 5,
+            "97": 6,
+            "100": 4,
+            "101": 4,
+            "104": 4,
+            "105": 1,
+            "107": 1,
+            "110": 1,
+            "112": 1,
+            "113": 1,
+            "115": 3,
+            "117": 3,
+            "118": 3,
+            "119": 5
+          },
+          "Branches": [
+            {
+              "Line": 97,
+              "Offset": 7,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 4
+            },
+            {
+              "Line": 100,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 4
+            },
+            {
+              "Line": 100,
+              "Offset": 17,
+              "EndOffset": 27,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 4
+            },
+            {
+              "Line": 104,
+              "Offset": 36,
+              "EndOffset": 38,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 104,
+              "Offset": 36,
+              "EndOffset": 85,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 3
+            },
+            {
+              "Line": 97,
+              "Offset": 7,
+              "EndOffset": 96,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 5
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::ExcluirDoSistemaArquivos(PersonalNotesApp.Model.Base)": {
+          "Lines": {
+            "122": 3,
+            "123": 3,
+            "126": 3,
+            "127": 3,
+            "128": 3,
+            "129": 3,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 3,
+            "135": 0,
+            "136": 0,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 3,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 3
+          },
+          "Branches": [
+            {
+              "Line": 127,
+              "Offset": 21,
+              "EndOffset": 23,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 129,
+              "Offset": 32,
+              "EndOffset": 34,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 129,
+              "Offset": 32,
+              "EndOffset": 61,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 3
+            },
+            {
+              "Line": 127,
+              "Offset": 21,
+              "EndOffset": 64,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 135,
+              "Offset": 75,
+              "EndOffset": 77,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 138,
+              "Offset": 102,
+              "EndOffset": 104,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 138,
+              "Offset": 102,
+              "EndOffset": 132,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 135,
+              "Offset": 75,
+              "EndOffset": 133,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 3
+            }
+          ]
+        },
+        "System.Boolean PersonalNotesApp.ViewModel.MainViewModel::ExcluirItemRecursivo(PersonalNotesApp.Model.Base,System.Collections.ObjectModel.ObservableCollection`1<PersonalNotesApp.Model.Base>)": {
+          "Lines": {
+            "152": 24,
+            "153": 111,
+            "154": 23,
+            "155": 23,
+            "156": 2,
+            "157": 2,
+            "158": 2,
+            "159": 2,
+            "160": 2,
+            "163": 21,
+            "164": 21,
+            "165": 21,
+            "166": 5,
+            "167": 16,
+            "168": 16,
+            "170": 17,
+            "171": 24
+          },
+          "Branches": [
+            {
+              "Line": 153,
+              "Offset": 133,
+              "EndOffset": 16,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 23
+            },
+            {
+              "Line": 155,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 155,
+              "Offset": 31,
+              "EndOffset": 82,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 21
+            },
+            {
+              "Line": 163,
+              "Offset": 97,
+              "EndOffset": 99,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 21
+            },
+            {
+              "Line": 165,
+              "Offset": 117,
+              "EndOffset": 119,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 5
+            },
+            {
+              "Line": 165,
+              "Offset": 117,
+              "EndOffset": 124,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 16
+            },
+            {
+              "Line": 163,
+              "Offset": 97,
+              "EndOffset": 125,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 16
+            },
+            {
+              "Line": 153,
+              "Offset": 133,
+              "EndOffset": 135,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 17
+            }
+          ]
+        },
+        "System.String PersonalNotesApp.ViewModel.MainViewModel::ObterCaminhoCompleto(PersonalNotesApp.Model.Base)": {
+          "Lines": {
+            "174": 3,
+            "175": 3,
+            "176": 3
+          },
+          "Branches": []
+        },
+        "System.String PersonalNotesApp.ViewModel.MainViewModel::ConstruirCaminhoHierarquico(PersonalNotesApp.Model.Base)": {
+          "Lines": {
+            "179": 3,
+            "180": 3,
+            "182": 3,
+            "183": 3,
+            "184": 3,
+            "185": 3
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::Salvar(System.String,System.Collections.ObjectModel.ObservableCollection`1<PersonalNotesApp.Model.Base>)": {
+          "Lines": {
+            "188": 2,
+            "189": 8,
+            "190": 1,
+            "191": 1,
+            "192": 1,
+            "193": 1,
+            "194": 1,
+            "195": 1,
+            "196": 0,
+            "197": 0,
+            "198": 0,
+            "199": 0,
+            "200": 0,
+            "201": 0,
+            "202": 1,
+            "203": 2
+          },
+          "Branches": [
+            {
+              "Line": 189,
+              "Offset": 161,
+              "EndOffset": 14,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 1
+            },
+            {
+              "Line": 191,
+              "Offset": 35,
+              "EndOffset": 37,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 191,
+              "Offset": 35,
+              "EndOffset": 84,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 196,
+              "Offset": 101,
+              "EndOffset": 103,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 196,
+              "Offset": 101,
+              "EndOffset": 154,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            },
+            {
+              "Line": 189,
+              "Offset": 161,
+              "EndOffset": 166,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::MapearPastaEstruturaParaTreeView(System.String,System.Collections.ObjectModel.ObservableCollection`1<PersonalNotesApp.Model.Base>)": {
+          "Lines": {
+            "205": 116,
+            "207": 116,
+            "208": 540,
+            "209": 96,
+            "210": 96,
+            "211": 96,
+            "213": 96,
+            "215": 96,
+            "216": 96,
+            "217": 351,
+            "218": 2,
+            "219": 2,
+            "220": 2,
+            "222": 1,
+            "224": 1,
+            "225": 1,
+            "226": 1,
+            "227": 1,
+            "229": 1,
+            "230": 1,
+            "231": 115,
+            "232": 1,
+            "233": 1,
+            "234": 1,
+            "235": 1,
+            "237": 116
+          },
+          "Branches": [
+            {
+              "Line": 208,
+              "Offset": 67,
+              "EndOffset": 14,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 96
+            },
+            {
+              "Line": 208,
+              "Offset": 67,
+              "EndOffset": 69,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 116
+            },
+            {
+              "Line": 217,
+              "Offset": 163,
+              "EndOffset": 88,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 217,
+              "Offset": 163,
+              "EndOffset": 165,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 115
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.ViewModel.MainViewModel::.ctor()": {
+          "Lines": {
+            "43": 19,
+            "44": 19,
+            "45": 19,
+            "46": 19,
+            "47": 19,
+            "49": 19
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\Model\\Anotacao.cs": {
+      "PersonalNotesApp.Model.Anotacao": {
+        "System.Windows.Documents.FlowDocument PersonalNotesApp.Model.Anotacao::get_Conteudo()": {
+          "Lines": {
+            "15": 5
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.Model.Anotacao::set_Conteudo(System.Windows.Documents.FlowDocument)": {
+          "Lines": {
+            "17": 7,
+            "18": 7,
+            "19": 7,
+            "20": 7
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.Model.Anotacao::.ctor(System.String)": {
+          "Lines": {
+            "22": 6,
+            "23": 6,
+            "24": 6,
+            "25": 0,
+            "26": 0,
+            "28": 6,
+            "29": 6,
+            "30": 6
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 14,
+              "EndOffset": 23,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            }
+          ]
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\Model\\Base.cs": {
+      "PersonalNotesApp.Model.Base": {
+        "System.Void PersonalNotesApp.Model.Base::OnPropertyChanged(System.String)": {
+          "Lines": {
+            "14": 133
+          },
+          "Branches": [
+            {
+              "Line": 14,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 133
+            },
+            {
+              "Line": 14,
+              "Offset": 7,
+              "EndOffset": 12,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Boolean PersonalNotesApp.Model.Base::get_EditaNome()": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.Model.Base::set_EditaNome(System.Boolean)": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0
+          },
+          "Branches": []
+        },
+        "System.String PersonalNotesApp.Model.Base::get_Nome()": {
+          "Lines": {
+            "31": 67
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.Model.Base::set_Nome(System.String)": {
+          "Lines": {
+            "33": 126,
+            "34": 126,
+            "35": 126,
+            "36": 126,
+            "37": 126,
+            "38": 126,
+            "39": 126
+          },
+          "Branches": [
+            {
+              "Line": 34,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 126
+            },
+            {
+              "Line": 34,
+              "Offset": 15,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 126
+            }
+          ]
+        },
+        "System.Void PersonalNotesApp.Model.Base::.ctor()": {
+          "Lines": {
+            "28": 126
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\Model\\Pasta.cs": {
+      "PersonalNotesApp.Model.Pasta": {
+        "System.Collections.ObjectModel.ObservableCollection`1<PersonalNotesApp.Model.Base> PersonalNotesApp.Model.Pasta::get_SubPastas()": {
+          "Lines": {
+            "13": 258
+          },
+          "Branches": []
+        },
+        "System.Void PersonalNotesApp.Model.Pasta::.ctor(System.String)": {
+          "Lines": {
+            "15": 120,
+            "16": 120,
+            "17": 120,
+            "18": 0,
+            "19": 0,
+            "21": 120,
+            "22": 120,
+            "23": 120
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 17,
+              "Offset": 14,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 120
+            }
+          ]
+        }
+      }
+    },
+    "C:\\ProjetosDev\\ProjetosCsharp\\PersonalNotesApp\\PersonalNotesApp\\Converter\\FlowDocumentToString.cs": {
+      "PersonalNotesApp.Converter.FlowDocumentToString": {
+        "System.String PersonalNotesApp.Converter.FlowDocumentToString::Converte(System.Windows.Documents.FlowDocument)": {
+          "Lines": {
+            "15": 18,
+            "16": 18,
+            "18": 93,
+            "19": 20,
+            "20": 20,
+            "21": 20,
+            "22": 20,
+            "23": 20,
+            "24": 20,
+            "26": 20,
+            "27": 8,
+            "28": 8,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "39": 8,
+            "40": 8,
+            "41": 8,
+            "43": 8,
+            "45": 28,
+            "48": 92,
+            "49": 16,
+            "50": 16,
+            "51": 16,
+            "52": 16,
+            "53": 16,
+            "54": 16,
+            "55": 16,
+            "58": 16,
+            "59": 1,
+            "60": 1,
+            "61": 1,
+            "63": 15,
+            "64": 1,
+            "65": 1,
+            "66": 1,
+            "68": 14,
+            "69": 1,
+            "70": 1,
+            "71": 1,
+            "73": 13,
+            "74": 1,
+            "75": 1,
+            "76": 1,
+            "78": 12,
+            "79": 3,
+            "80": 3,
+            "81": 3,
+            "83": 9,
+            "84": 3,
+            "85": 3,
+            "86": 3,
+            "88": 6,
+            "89": 3,
+            "90": 3,
+            "91": 3,
+            "93": 16,
+            "94": 16,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 16,
+            "100": 28,
+            "101": 20,
+            "102": 20,
+            "103": 20,
+            "105": 17,
+            "106": 17
+          },
+          "Branches": [
+            {
+              "Line": 18,
+              "Offset": 672,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 33,
+              "Hits": 20
+            },
+            {
+              "Line": 20,
+              "Offset": 48,
+              "EndOffset": 53,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 20
+            },
+            {
+              "Line": 26,
+              "Offset": 85,
+              "EndOffset": 87,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 8
+            },
+            {
+              "Line": 28,
+              "Offset": 104,
+              "EndOffset": 123,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 28,
+              "Offset": 104,
+              "EndOffset": 139,
+              "Path": 2,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 28,
+              "Offset": 104,
+              "EndOffset": 155,
+              "Path": 3,
+              "Ordinal": 7,
+              "Hits": 8
+            },
+            {
+              "Line": 28,
+              "Offset": 104,
+              "EndOffset": 171,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 8
+            },
+            {
+              "Line": 26,
+              "Offset": 85,
+              "EndOffset": 172,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 20
+            },
+            {
+              "Line": 45,
+              "Offset": 178,
+              "EndOffset": 180,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 8
+            },
+            {
+              "Line": 45,
+              "Offset": 178,
+              "EndOffset": 189,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 20
+            },
+            {
+              "Line": 48,
+              "Offset": 600,
+              "EndOffset": 208,
+              "Path": 1,
+              "Ordinal": 29,
+              "Hits": 16
+            },
+            {
+              "Line": 50,
+              "Offset": 236,
+              "EndOffset": 241,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 16
+            },
+            {
+              "Line": 58,
+              "Offset": 326,
+              "EndOffset": 328,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 1
+            },
+            {
+              "Line": 58,
+              "Offset": 326,
+              "EndOffset": 354,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 15
+            },
+            {
+              "Line": 63,
+              "Offset": 363,
+              "EndOffset": 365,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 1
+            },
+            {
+              "Line": 63,
+              "Offset": 363,
+              "EndOffset": 391,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 14
+            },
+            {
+              "Line": 68,
+              "Offset": 400,
+              "EndOffset": 402,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 1
+            },
+            {
+              "Line": 68,
+              "Offset": 400,
+              "EndOffset": 425,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 13
+            },
+            {
+              "Line": 73,
+              "Offset": 434,
+              "EndOffset": 436,
+              "Path": 0,
+              "Ordinal": 18,
+              "Hits": 1
+            },
+            {
+              "Line": 73,
+              "Offset": 434,
+              "EndOffset": 459,
+              "Path": 1,
+              "Ordinal": 19,
+              "Hits": 12
+            },
+            {
+              "Line": 78,
+              "Offset": 465,
+              "EndOffset": 467,
+              "Path": 0,
+              "Ordinal": 20,
+              "Hits": 3
+            },
+            {
+              "Line": 78,
+              "Offset": 465,
+              "EndOffset": 490,
+              "Path": 1,
+              "Ordinal": 21,
+              "Hits": 9
+            },
+            {
+              "Line": 83,
+              "Offset": 496,
+              "EndOffset": 498,
+              "Path": 0,
+              "Ordinal": 22,
+              "Hits": 3
+            },
+            {
+              "Line": 83,
+              "Offset": 496,
+              "EndOffset": 521,
+              "Path": 1,
+              "Ordinal": 23,
+              "Hits": 6
+            },
+            {
+              "Line": 88,
+              "Offset": 527,
+              "EndOffset": 529,
+              "Path": 0,
+              "Ordinal": 24,
+              "Hits": 3
+            },
+            {
+              "Line": 88,
+              "Offset": 527,
+              "EndOffset": 550,
+              "Path": 1,
+              "Ordinal": 25,
+              "Hits": 16
+            },
+            {
+              "Line": 50,
+              "Offset": 236,
+              "EndOffset": 562,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 95,
+              "Offset": 576,
+              "EndOffset": 578,
+              "Path": 0,
+              "Ordinal": 26,
+              "Hits": 0
+            },
+            {
+              "Line": 95,
+              "Offset": 576,
+              "EndOffset": 592,
+              "Path": 1,
+              "Ordinal": 27,
+              "Hits": 16
+            },
+            {
+              "Line": 48,
+              "Offset": 600,
+              "EndOffset": 605,
+              "Path": 0,
+              "Ordinal": 28,
+              "Hits": 20
+            },
+            {
+              "Line": 100,
+              "Offset": 626,
+              "EndOffset": 628,
+              "Path": 0,
+              "Ordinal": 30,
+              "Hits": 8
+            },
+            {
+              "Line": 100,
+              "Offset": 626,
+              "EndOffset": 637,
+              "Path": 1,
+              "Ordinal": 31,
+              "Hits": 20
+            },
+            {
+              "Line": 20,
+              "Offset": 48,
+              "EndOffset": 638,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 20
+            },
+            {
+              "Line": 18,
+              "Offset": 672,
+              "EndOffset": 677,
+              "Path": 0,
+              "Ordinal": 32,
+              "Hits": 17
+            }
+          ]
+        },
+        "System.Windows.Documents.FlowDocument PersonalNotesApp.Converter.FlowDocumentToString::ConverteDeVolta(System.String)": {
+          "Lines": {
+            "109": 17,
+            "110": 17,
+            "112": 17,
+            "113": 2,
+            "114": 2,
+            "115": 2,
+            "118": 15,
+            "121": 83,
+            "122": 19,
+            "123": 19,
+            "124": 19,
+            "126": 19,
+            "128": 19,
+            "129": 0,
+            "130": 0,
+            "131": 0,
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 19,
+            "137": 0,
+            "138": 0,
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "144": 19,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "153": 19,
+            "155": 19,
+            "157": 19,
+            "158": 19,
+            "160": 32,
+            "161": 13,
+            "162": 13,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "167": 13,
+            "170": 13,
+            "171": 1,
+            "172": 1,
+            "173": 1,
+            "174": 1,
+            "175": 1,
+            "176": 1,
+            "177": 1,
+            "178": 12,
+            "179": 1,
+            "180": 1,
+            "181": 1,
+            "182": 1,
+            "183": 1,
+            "185": 1,
+            "186": 11,
+            "187": 1,
+            "188": 1,
+            "189": 1,
+            "190": 1,
+            "191": 1,
+            "193": 1,
+            "194": 10,
+            "195": 1,
+            "196": 1,
+            "197": 1,
+            "198": 1,
+            "199": 1,
+            "200": 1,
+            "201": 9,
+            "202": 3,
+            "203": 3,
+            "204": 3,
+            "205": 3,
+            "206": 3,
+            "207": 6,
+            "208": 3,
+            "209": 3,
+            "210": 3,
+            "211": 3,
+            "212": 3,
+            "213": 3,
+            "214": 3,
+            "215": 3,
+            "216": 3,
+            "217": 3,
+            "218": 3,
+            "219": 13,
+            "220": 13,
+            "221": 13,
+            "222": 13,
+            "223": 19,
+            "224": 2,
+            "225": 2,
+            "226": 2,
+            "227": 19,
+            "228": 19,
+            "229": 15,
+            "230": 17
+          },
+          "Branches": [
+            {
+              "Line": 112,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 112,
+              "Offset": 15,
+              "EndOffset": 42,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 15
+            },
+            {
+              "Line": 121,
+              "Offset": 1202,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 35,
+              "Hits": 19
+            },
+            {
+              "Line": 128,
+              "Offset": 110,
+              "EndOffset": 112,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 128,
+              "Offset": 110,
+              "EndOffset": 126,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 19
+            },
+            {
+              "Line": 128,
+              "Offset": 131,
+              "EndOffset": 133,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 128,
+              "Offset": 131,
+              "EndOffset": 196,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 19
+            },
+            {
+              "Line": 136,
+              "Offset": 208,
+              "EndOffset": 210,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 136,
+              "Offset": 208,
+              "EndOffset": 224,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 19
+            },
+            {
+              "Line": 136,
+              "Offset": 229,
+              "EndOffset": 231,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 136,
+              "Offset": 229,
+              "EndOffset": 291,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 19
+            },
+            {
+              "Line": 144,
+              "Offset": 303,
+              "EndOffset": 305,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 144,
+              "Offset": 303,
+              "EndOffset": 319,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 19
+            },
+            {
+              "Line": 144,
+              "Offset": 324,
+              "EndOffset": 326,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 144,
+              "Offset": 324,
+              "EndOffset": 384,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 19
+            },
+            {
+              "Line": 160,
+              "Offset": 1124,
+              "EndOffset": 426,
+              "Path": 1,
+              "Ordinal": 31,
+              "Hits": 13
+            },
+            {
+              "Line": 162,
+              "Offset": 442,
+              "EndOffset": 444,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 162,
+              "Offset": 442,
+              "EndOffset": 483,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 13
+            },
+            {
+              "Line": 170,
+              "Offset": 512,
+              "EndOffset": 514,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 1
+            },
+            {
+              "Line": 170,
+              "Offset": 512,
+              "EndOffset": 590,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 12
+            },
+            {
+              "Line": 178,
+              "Offset": 612,
+              "EndOffset": 614,
+              "Path": 0,
+              "Ordinal": 18,
+              "Hits": 1
+            },
+            {
+              "Line": 178,
+              "Offset": 612,
+              "EndOffset": 677,
+              "Path": 1,
+              "Ordinal": 19,
+              "Hits": 11
+            },
+            {
+              "Line": 186,
+              "Offset": 699,
+              "EndOffset": 701,
+              "Path": 0,
+              "Ordinal": 20,
+              "Hits": 1
+            },
+            {
+              "Line": 186,
+              "Offset": 699,
+              "EndOffset": 764,
+              "Path": 1,
+              "Ordinal": 21,
+              "Hits": 10
+            },
+            {
+              "Line": 194,
+              "Offset": 786,
+              "EndOffset": 788,
+              "Path": 0,
+              "Ordinal": 22,
+              "Hits": 1
+            },
+            {
+              "Line": 194,
+              "Offset": 786,
+              "EndOffset": 851,
+              "Path": 1,
+              "Ordinal": 23,
+              "Hits": 9
+            },
+            {
+              "Line": 201,
+              "Offset": 874,
+              "EndOffset": 876,
+              "Path": 0,
+              "Ordinal": 24,
+              "Hits": 3
+            },
+            {
+              "Line": 201,
+              "Offset": 874,
+              "EndOffset": 927,
+              "Path": 1,
+              "Ordinal": 25,
+              "Hits": 6
+            },
+            {
+              "Line": 207,
+              "Offset": 950,
+              "EndOffset": 952,
+              "Path": 0,
+              "Ordinal": 26,
+              "Hits": 3
+            },
+            {
+              "Line": 207,
+              "Offset": 950,
+              "EndOffset": 1000,
+              "Path": 1,
+              "Ordinal": 27,
+              "Hits": 3
+            },
+            {
+              "Line": 213,
+              "Offset": 1023,
+              "EndOffset": 1025,
+              "Path": 0,
+              "Ordinal": 28,
+              "Hits": 3
+            },
+            {
+              "Line": 213,
+              "Offset": 1023,
+              "EndOffset": 1071,
+              "Path": 1,
+              "Ordinal": 29,
+              "Hits": 13
+            },
+            {
+              "Line": 160,
+              "Offset": 1124,
+              "EndOffset": 1129,
+              "Path": 0,
+              "Ordinal": 30,
+              "Hits": 19
+            },
+            {
+              "Line": 223,
+              "Offset": 1144,
+              "EndOffset": 1146,
+              "Path": 0,
+              "Ordinal": 32,
+              "Hits": 2
+            },
+            {
+              "Line": 223,
+              "Offset": 1144,
+              "EndOffset": 1175,
+              "Path": 1,
+              "Ordinal": 33,
+              "Hits": 19
+            },
+            {
+              "Line": 121,
+              "Offset": 1202,
+              "EndOffset": 1207,
+              "Path": 0,
+              "Ordinal": 34,
+              "Hits": 15
+            }
+          ]
+        }
+      }
+    }
+  }
+}
