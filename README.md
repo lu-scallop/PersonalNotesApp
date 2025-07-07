@@ -50,7 +50,14 @@ como deixar palavras em negrito, itálico e sublinhado. Também é possível alt
 # 🏗️ Estrutura do projeto
 ![Estrutura do projeto](PersonalNotesApp/Assets/Estrutura_do_projeto.png)
 
-📧 Contato
+# 🔄 Próximas Melhorias
+
+* Aumentar cobertura de testes para 70%+
+* Implementar funcionalidade de mudar a cor das palavras
+* Modo escuro para interface
+* Implementar recursos de IA
+
+# 📧 Contato
 https://www.linkedin.com/in/lucas-vieira-rocha
 
 
