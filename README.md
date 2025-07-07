@@ -1,5 +1,8 @@
 # ![Ícone do app](PersonalNotesApp/Assets/favicon.ico) Personal Notes App
 ![Bagde](https://img.shields.io/badge/status-completo-green)
+![Bagde](https://img.shields.io/badge/Csharp-purple)
+![Bagde](https://img.shields.io/badge/WPF-5f0f40)
+![Bagde](https://img.shields.io/badge/xUnity-00b4d8)
 
 Um aplicativo Desktop de anotação e gerenciamento de pastas. Desenvolvido com C# e WPF, utilizando arquitetura MVVM.
 No PersonalNotesApp o usuário pode adicionar pastas e anotações, salvar e excluir, além de aplicar estilos para a fonte,
